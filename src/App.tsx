@@ -1,26 +1,30 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import buttonStyle from "./elements/Button/Button.module.css";
+import style from "./App.module.css";
+import Header from "./components/Header/Header";
+import SidePanel from "./components/SidePanel/SidePanel";
+import Inbox from "./components/Inbox/Inbox";
+import { Routes, Route } from "react-router-dom";
+import Outbox from "./components/Outbox/Outbox";
+import Compose from "./pages/Compose/Compose";
+import Drafts from "./pages/Drafts/Drafts";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p className={buttonStyle.red}>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          // className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={buttonStyle.green}
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={style.container}>
+      <Header />
+      <div className={style.content}>
+        <div className={style.leftContent}>
+          <SidePanel />
+        </div>
+        <div className={style.rightContent}>
+          <Routes>
+            <Route path="/" element={<Inbox />} />
+            <Route path="/outbox" element={<Outbox />} />
+            <Route path="/compose" element={<Compose />} />
+            <Route path="/drafts" element={<Drafts />} />
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 }

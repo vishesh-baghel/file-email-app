@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: var(--white);
+}
+
+.leftContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.rightContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

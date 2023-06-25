@@ -1,7 +1,37 @@
-.red {
-  color: red;
+.text {
+  font-size: inherit;
+  font-weight: 600;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: inherit;
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+  padding: 0 10px;
+  &:hover {
+    background-color: var(--white);
+    color: var(--black);
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+  &:disabled {
+    background-color: var(--light-gray);
+    color: var(--white);
+    cursor: not-allowed;
+  }
 }
 
-.green {
-  color: green;
+.link {
+  text-decoration: none;
 }

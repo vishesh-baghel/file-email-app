@@ -1,13 +1,22 @@
 import React, { FC } from "react";
+import { Link } from "react-router-dom";
+import style from "./Button.module.css";
 
 interface ButtonProps {
   content: string;
+  link?: string;
 }
 
-const Button: FC<ButtonProps> = ({ content }) => {
+const Button: FC<ButtonProps> = ({ content, link }) => {
   return (
     <>
-      <button>{content}</button>
+      {link ? (
+        <Link to={link} className={style.link}>
+          <button className={style.text}>{content}</button>
+        </Link>
+      ) : (
+        <button className={style.text}>{content}</button>
+      )}
     </>
   );
 };
