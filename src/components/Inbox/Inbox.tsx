@@ -1,14 +1,34 @@
 import * as React from "react";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import style from "./Inbox.module.css";
-import EmailList from "../EmailList/EmailList";
+import EmailStack from "../EmailList/EmailStack";
+import RefreshIcon from "@mui/icons-material/Refresh";
+import Button from "../../elements/Button/Button";
 
-export interface InboxProps {}
+export interface InboxProps {
+  searchPlaceholderText?: string;
+  setSearchPlaceholderText?: React.Dispatch<React.SetStateAction<string>>;
+}
 
 export default function Inbox(props: InboxProps) {
+  const location = useLocation();
+  useEffect(() => {
+    if (location.pathname === "/") {
+      props.setSearchPlaceholderText &&
+        props.setSearchPlaceholderText("Search Inbox");
+    }
+  });
+
   return (
     <div className={style.container}>
-      <div className={style.header}>Inbox</div>
-      <EmailList />
+      <div className={style.header}>
+        <div>Inbox</div>
+        <div className={style.refreshButton}>
+          <Button content={<RefreshIcon fontSize="small" />} />
+        </div>
+      </div>
+      <EmailStack />
     </div>
   );
 }

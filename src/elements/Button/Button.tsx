@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import style from "./Button.module.css";
 
 interface ButtonProps {
-  content: string;
+  content: string | JSX.Element;
   link?: string;
 }
 

@@ -12,10 +12,10 @@ export default function SidePanel(props: SidePanelProps) {
           <Button content="Compose" link="/compose" />
         </div>
         <div className={style.button}>
-          <Button content="Inbox" link="/inbox" />
+          <Button content="Inbox" link="/" />
         </div>
         <div className={style.button}>
-          <Button content="Sent" link="/outbox" />
+          <Button content="Outbox" link="/outbox" />
         </div>
         <div className={style.button}>
           <Button content="Drafts" link="/drafts" />
