@@ -1,5 +1,7 @@
 import * as React from "react";
+import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import style from "./EmailStack.module.css";
+import emailList from "../../data";
 
 export interface EmailStackProps {}
 
@@ -10,108 +12,12 @@ interface EmailItemProps {
   dateOrTime?: string;
 }
 
-const emailList = [
-  {
-    sender: "John Doe",
-    subject: "Hello",
-    body: "Hello World",
-    dateOrTime: "10:00 AM",
-  },
-  {
-    sender: "Jane Doe",
-    subject: "Hello",
-    body: "Hello World",
-    dateOrTime: "10:00 AM",
-  },
-  {
-    sender: "John Doe",
-    subject: "Hello",
-    body: "Hello World",
-    dateOrTime: "10:00 AM",
-  },
-  {
-    sender: "Jane Doe",
-    subject: "Hello",
-    body: "Hello World",
-    dateOrTime: "10:00 AM",
-  },
-  {
-    sender: "John Doe",
-    subject: "Hello",
-    body: "Hello World",
-    dateOrTime: "10:00 AM",
-  },
-  {
-    sender: "Jane Doe",
-    subject: "Hello",
-    body: "Hello World",
-    dateOrTime: "10:00 AM",
-  },
-  {
-    sender: "John Doe",
-    subject: "Hello",
-    body: "Hello World",
-    dateOrTime: "10:00 AM",
-  },
-  {
-    sender: "Jane Doe",
-    subject: "Hello",
-    body: "Hello World",
-    dateOrTime: "10:00 AM",
-  },
-  {
-    sender: "John Doe",
-    subject: "Hello",
-    body: "Hello World",
-    dateOrTime: "10:00 AM",
-  },
-  {
-    sender: "Jane Doe",
-    subject: "Hello",
-    body: "Hello World",
-    dateOrTime: "10:00 AM",
-  },
-  {
-    sender: "John Doe",
-    subject: "Hello",
-    body: "Hello World",
-    dateOrTime: "10:00 AM",
-  },
-  {
-    sender: "Jane Doe",
-    subject: "Hello",
-    body: "Hello World",
-    dateOrTime: "10:00 AM",
-  },
-  {
-    sender: "John Doe",
-    subject: "Hello",
-    body: "Hello World",
-    dateOrTime: "10:00 AM",
-  },
-  {
-    sender: "Jane Doe",
-    subject: "Hello",
-    body: "Hello World",
-    dateOrTime: "10:00 AM",
-  },
-  {
-    sender: "John Doe",
-    subject: "Hello",
-    body: "Hello World",
-    dateOrTime: "10:00 AM",
-  },
-  {
-    sender: "Jane Doe",
-    subject: "Hello",
-    body: "Hello World",
-    dateOrTime: "10:00 AM",
-  },
-];
-
 const EmailItem = (props: EmailItemProps) => {
   return (
     <div className={style.emailItemContainer}>
+      <div className={style.emailItemCheckbox}>
+        <CheckBoxOutlineBlankIcon fontSize="small" />
+      </div>
       <div className={style.emailItemSender}>{props.sender}</div>
       <div className={style.emailItemSubject}>{props.subject}</div>
       <div className={style.emailItemBody}>{props.body}</div>
