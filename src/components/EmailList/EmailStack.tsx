@@ -1,11 +1,10 @@
-import * as React from "react";
-import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import style from "./EmailStack.module.css";
 import emailList from "../../data";
 
 export interface EmailStackProps {}
 
 interface EmailItemProps {
+  checked?: boolean;
   sender?: string;
   subject?: string;
   body?: string;
@@ -13,10 +12,18 @@ interface EmailItemProps {
 }
 
 const EmailItem = (props: EmailItemProps) => {
+  const handleEmailItemCheckbox = () => {
+    props.checked = !props.checked;
+  };
+
   return (
     <div className={style.emailItemContainer}>
       <div className={style.emailItemCheckbox}>
-        <CheckBoxOutlineBlankIcon fontSize="small" />
+        <input
+          type="checkbox"
+          checked={props.checked}
+          onClick={handleEmailItemCheckbox}
+        />
       </div>
       <div className={style.emailItemSender}>{props.sender}</div>
       <div className={style.emailItemSubject}>{props.subject}</div>

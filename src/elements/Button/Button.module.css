@@ -1,7 +1,7 @@
 .text {
   font-size: inherit;
   font-weight: 600;
-  color: var(--white);
+  color: inherit;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   transition: all 0.2s ease-in-out;
@@ -34,4 +34,5 @@
 
 .link {
   text-decoration: none;
+  color: inherit;
 }

@@ -17,6 +17,12 @@
   box-shadow: 0 0 3px var(--black);
 }
 
+.selectAllCheckbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .refreshButton {
   cursor: pointer;
   display: flex;
@@ -25,7 +31,7 @@
   height: 1.5rem;
   width: 1.5rem;
   border-radius: 50%;
-  background-color: var(--secondary-color);
-  color: var(--white);
+  background-color: var(--white);
+  color: var(--black);
   margin-left: 1rem;
 }

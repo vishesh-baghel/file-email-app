@@ -23,7 +23,9 @@ export default function Inbox(props: InboxProps) {
   return (
     <div className={style.container}>
       <div className={style.header}>
-        <div>Inbox</div>
+        <div className={style.selectAllCheckbox}>
+          <input type="checkbox" />
+        </div>
         <div className={style.refreshButton}>
           <Button content={<RefreshIcon fontSize="small" />} />
         </div>
