@@ -14,9 +14,8 @@ export interface InboxProps {
 export default function Inbox(props: InboxProps) {
   const location = useLocation();
   useEffect(() => {
-    if (location.pathname === "/") {
-      props.setSearchPlaceholderText &&
-        props.setSearchPlaceholderText("Search Inbox");
+    if (location.pathname === "/" && props.setSearchPlaceholderText) {
+      props.setSearchPlaceholderText("Search mail");
     }
   });
 
