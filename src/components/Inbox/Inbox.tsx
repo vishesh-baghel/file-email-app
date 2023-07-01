@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import style from "./Inbox.module.css";
 import EmailStack from "../EmailList/EmailStack";
 import RefreshIcon from "@mui/icons-material/Refresh";
@@ -13,23 +13,33 @@ export interface InboxProps {
 
 export default function Inbox(props: InboxProps) {
   const location = useLocation();
+  const [selectAllChecked, setSelectAllChecked] = useState<boolean>(false);
+
   useEffect(() => {
     if (location.pathname === "/" && props.setSearchPlaceholderText) {
       props.setSearchPlaceholderText("Search mail");
     }
   });
 
+  const handleSelectAllCheckbox = () => {
+    setSelectAllChecked(!selectAllChecked);
+  };
+
   return (
     <div className={style.container}>
       <div className={style.header}>
         <div className={style.selectAllCheckbox}>
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            checked={selectAllChecked}
+            onChange={handleSelectAllCheckbox}
+          />
         </div>
         <div className={style.refreshButton}>
           <Button content={<RefreshIcon fontSize="small" />} />
         </div>
       </div>
-      <EmailStack />
+      <EmailStack selectAll={selectAllChecked} />
     </div>
   );
 }

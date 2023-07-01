@@ -1,6 +1,6 @@
 import { ApiCore } from "./utilities/core";
 
-const url = "/emails";
+const url = "emails";
 
 const emailApi = new ApiCore({
   getAll: true,
