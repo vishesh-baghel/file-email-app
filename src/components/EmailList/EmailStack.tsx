@@ -57,7 +57,10 @@ export default function EmailStack(props: EmailStackProps) {
   };
 
   const handleSelectAll = () => {
-    const allEmailIds = props.emails.map((email) => email.id);
+    let allEmailIds: string[] = [];
+    if (props.emails) {
+    allEmailIds = props.emails.map((email) => email.id);
+    }
 
     if (selectAll) {
       setSelectedEmails([]);
