@@ -5,17 +5,18 @@ import style from "./Button.module.css";
 interface ButtonProps {
   content: string | JSX.Element;
   link?: string;
+  onClick?: () => void;
 }
 
-const Button: FC<ButtonProps> = ({ content, link }) => {
+const Button: FC<ButtonProps> = ({ content, link, onClick }) => {
   return (
     <>
       {link ? (
         <Link to={link} className={style.link}>
-          <button className={style.text}>{content}</button>
+          <button className={style.text} onClick={onClick}>{content}</button>
         </Link>
       ) : (
-        <button className={style.text}>{content}</button>
+        <button className={style.text} onClick={onClick}>{content}</button>
       )}
     </>
   );

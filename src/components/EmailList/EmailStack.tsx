@@ -10,13 +10,14 @@ export interface EmailStackProps {
 
 interface EmailItemProps {
   email: Email;
-  selected: boolean;
+  selectAll?: boolean;
   onSelect: (emailId: string, selected: boolean) => void;
 }
-
+ 
 const EmailItem = (props: EmailItemProps) => {
+  const [selected, setSelected] = useState(false);
   const handleEmailItemCheckbox = () => {
-    props.onSelect(props.email.id, !props.selected);
+    setSelected(!selected && props.selectAll ? true : !selected);
   };
 
   return (
@@ -24,7 +25,7 @@ const EmailItem = (props: EmailItemProps) => {
       <div className={style.emailItemCheckbox}>
         <input
           type="checkbox"
-          checked={props.selected}
+          checked={selected}
           onChange={handleEmailItemCheckbox}
         />
       </div>
@@ -37,9 +38,8 @@ const EmailItem = (props: EmailItemProps) => {
 };
 
 export default function EmailStack(props: EmailStackProps) {
-  const [emailList, setEmailList] = useState<Email[]>([]);
   const [selectedEmails, setSelectedEmails] = useState<string[]>([]);
-  const [selectAll, setSelectAll] = useState(false);
+  const [selectAll, setSelectAll] = useState(props.selectAll ? true : false);
 
   const handleEmailSelect = (emailId: string, selected: boolean) => {
     let updatedSelectedEmails: string[];
@@ -71,28 +71,15 @@ export default function EmailStack(props: EmailStackProps) {
     setSelectAll(!selectAll);
   };
 
-  useEffect(() => {
-    getEmails();
-  }, []);
-
-  const getEmails = () => {
-    if (emailApi.getAll) {
-      return emailApi.getAll().then((response) => {
-        setEmailList(response);
-      });
-    }
-  };
-
   return (
     <div className={style.container}>
-      {emailList.map((email) => {
+      {props.emails && props.emails.map((email) => {
         return (
           <>
             <EmailItem
               key={email.id}
               email={email}
-              selected={selectedEmails.includes(email.id)}
-              onSelect={handleEmailSelect}
+              onSelect={() => handleEmailSelect(email.id, !selectedEmails.includes(email.id))}
             />
           </>
         );

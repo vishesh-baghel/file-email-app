@@ -5,6 +5,8 @@ import style from "./Inbox.module.css";
 import EmailStack from "../EmailList/EmailStack";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import Button from "../../elements/Button/Button";
+import emailApi from '../../services/api/email';
+import { Email } from '../../services/model/email';
 
 export interface InboxProps {
   searchPlaceholderText?: string;
@@ -14,6 +16,7 @@ export interface InboxProps {
 export default function Inbox(props: InboxProps) {
   const location = useLocation();
   const [selectAllChecked, setSelectAllChecked] = useState<boolean>(false);
+  const [emailList, setEmailList] = useState<Email[]>([]);
 
   useEffect(() => {
     if (location.pathname === "/" && props.setSearchPlaceholderText) {
@@ -23,6 +26,22 @@ export default function Inbox(props: InboxProps) {
 
   const handleSelectAllCheckbox = () => {
     setSelectAllChecked(!selectAllChecked);
+  };
+
+  const handleRefreshbutton = () => {
+    getEmails();
+  };
+
+  useEffect(() => {
+    getEmails();
+  }, []);
+
+  const getEmails = () => {
+    if (emailApi.getAll) {
+      return emailApi.getAll().then((response) => {
+        setEmailList(response);
+      });
+    }
   };
 
   return (
@@ -36,10 +55,10 @@ export default function Inbox(props: InboxProps) {
           />
         </div>
         <div className={style.refreshButton}>
-          <Button content={<RefreshIcon fontSize="small" />} />
+          <Button content={<RefreshIcon fontSize="small" />} onClick={handleRefreshbutton} />
         </div>
       </div>
-      <EmailStack selectAll={selectAllChecked} />
+      <EmailStack selectAll={selectAllChecked} emails={emailList}/>
     </div>
   );
 }
