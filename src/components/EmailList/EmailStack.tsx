@@ -13,11 +13,13 @@ interface EmailItemProps {
   selectAll?: boolean;
   onSelect: (emailId: string, selected: boolean) => void;
 }
- 
+
 const EmailItem = (props: EmailItemProps) => {
   const [selected, setSelected] = useState(false);
   const handleEmailItemCheckbox = () => {
-    setSelected(!selected && props.selectAll ? true : !selected);
+    props.onSelect(props.email.id, !selected);
+    // setSelected(!selected && props.selectAll ? true : !selected);
+    setSelected(!selected);
   };
 
   return (
@@ -59,7 +61,7 @@ export default function EmailStack(props: EmailStackProps) {
   const handleSelectAll = () => {
     let allEmailIds: string[] = [];
     if (props.emails) {
-    allEmailIds = props.emails.map((email) => email.id);
+      allEmailIds = props.emails.map((email) => email.id);
     }
 
     if (selectAll) {
@@ -73,17 +75,18 @@ export default function EmailStack(props: EmailStackProps) {
 
   return (
     <div className={style.container}>
-      {props.emails && props.emails.map((email) => {
-        return (
-          <>
-            <EmailItem
-              key={email.id}
-              email={email}
-              onSelect={() => handleEmailSelect(email.id, !selectedEmails.includes(email.id))}
-            />
-          </>
-        );
-      })}
+      {props.emails &&
+        props.emails.map((email) => {
+          return (
+            <>
+              <EmailItem
+                key={email.id}
+                email={email}
+                onSelect={handleEmailSelect}
+              />
+            </>
+          );
+        })}
     </div>
   );
 }
