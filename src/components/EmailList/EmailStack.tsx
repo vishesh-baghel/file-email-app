@@ -1,10 +1,11 @@
 import style from "./EmailStack.module.css";
-import emailApi from "../../services/api/email";
+import emailApi from "../../services/api/emailApi";
 import { useState, useEffect } from "react";
 import { Email } from "../../services/model/email";
 
 export interface EmailStackProps {
   emails?: Email[];
+  selectedEmails?: React.Dispatch<React.SetStateAction<string[]>>;
   selectAll?: boolean;
 }
 
@@ -53,6 +54,7 @@ export default function EmailStack(props: EmailStackProps) {
     }
 
     setSelectedEmails(updatedSelectedEmails);
+    props.selectedEmails && props.selectedEmails(updatedSelectedEmails);
     if (props.emails) {
       setSelectAll(updatedSelectedEmails.length === props.emails.length);
     }

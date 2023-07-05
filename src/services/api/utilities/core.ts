@@ -7,6 +7,7 @@ export class ApiCore {
   post?: (model: any) => Promise<any>;
   put?: (model: any) => Promise<any>;
   remove?: (id: string) => Promise<any>;
+  removeMultiple?: (ids: string[]) => Promise<any>;
 
   constructor(options: ApiOptions) {
     if (options.getAll) {
@@ -36,6 +37,12 @@ export class ApiCore {
     if (options.remove) {
       this.remove = (id: string) => {
         return apiProvider.remove(options.url!, id);
+      };
+    }
+
+    if (options.removeMultiple) {
+      this.removeMultiple = (ids: string[]) => {
+        return apiProvider.removeMultiple(options.url!, ids);
       };
     }
   }

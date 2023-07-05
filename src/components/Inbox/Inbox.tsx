@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import style from "./Inbox.module.css";
 import EmailStack from "../EmailList/EmailStack";
 import RefreshIcon from "@mui/icons-material/Refresh";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import Button from "../../elements/Button/Button";
-import emailApi from '../../services/api/email';
-import { Email } from '../../services/model/email';
+import emailApi from "../../services/api/emailApi";
+import { Email } from "../../services/model/email";
 
 export interface InboxProps {
   searchPlaceholderText?: string;
@@ -17,6 +18,7 @@ export default function Inbox(props: InboxProps) {
   const location = useLocation();
   const [selectAllChecked, setSelectAllChecked] = useState<boolean>(false);
   const [emailList, setEmailList] = useState<Email[]>([]);
+  const [selectedEmails, setSelectedEmails] = useState<string[]>([]);
 
   useEffect(() => {
     if (location.pathname === "/" && props.setSearchPlaceholderText) {
@@ -28,8 +30,16 @@ export default function Inbox(props: InboxProps) {
     setSelectAllChecked(!selectAllChecked);
   };
 
-  const handleRefreshbutton = () => {
+  const handleRefreshButton = () => {
     getEmails();
+  };
+
+  const handleDeleteButton = () => {
+    if (emailApi.removeMultiple) {
+      emailApi.removeMultiple(selectedEmails).then(() => {
+        getEmails();
+      });
+    }
   };
 
   useEffect(() => {
@@ -55,10 +65,23 @@ export default function Inbox(props: InboxProps) {
           />
         </div>
         <div className={style.refreshButton}>
-          <Button content={<RefreshIcon fontSize="small" />} onClick={handleRefreshbutton} />
+          <Button
+            content={<RefreshIcon fontSize="small" />}
+            onClick={handleRefreshButton}
+          />
+        </div>
+        <div className={style.deleteButton}>
+          <Button
+            content={<DeleteOutlineIcon fontSize="small" />}
+            onClick={handleDeleteButton}
+          />
         </div>
       </div>
-      <EmailStack selectAll={selectAllChecked} emails={emailList}/>
+      <EmailStack
+        selectAll={selectAllChecked}
+        emails={emailList}
+        selectedEmails={setSelectedEmails}
+      />
     </div>
   );
 }

@@ -4,5 +4,6 @@ export interface ApiOptions {
   post?: boolean;
   put?: boolean;
   remove?: boolean;
+  removeMultiple?: boolean;
   url?: string;
 }

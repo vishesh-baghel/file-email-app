@@ -8,6 +8,7 @@ const emailApi = new ApiCore({
   post: true,
   put: true,
   remove: true,
+  removeMultiple: true,
   url: url,
 });
 

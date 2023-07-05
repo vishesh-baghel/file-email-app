@@ -38,10 +38,21 @@ async function remove(resource: string, id: string): Promise<AxiosResponse> {
     .catch(handleError);
 }
 
+async function removeMultiple(
+  resource: string,
+  ids: string[]
+): Promise<AxiosResponse> {
+  return axios
+    .delete(`${BASE_URL}/${resource}`, { data: { ids } })
+    .then(handleResponse)
+    .catch(handleError);
+}
+
 export const apiProvider = {
   getAll,
   getOne,
   post,
   put,
   remove,
+  removeMultiple,
 };
