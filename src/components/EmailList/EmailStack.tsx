@@ -1,11 +1,12 @@
 import style from "./EmailStack.module.css";
 import emailApi from "../../services/api/emailApi";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Email } from "../../services/model/email";
 
 export interface EmailStackProps {
   emails?: Email[];
   selectedEmails?: React.Dispatch<React.SetStateAction<string[]>>;
+  showToolbar?: React.Dispatch<React.SetStateAction<boolean>>;
   selectAll?: boolean;
 }
 
@@ -42,7 +43,7 @@ const EmailItem = (props: EmailItemProps) => {
 
 export default function EmailStack(props: EmailStackProps) {
   const [selectedEmails, setSelectedEmails] = useState<string[]>([]);
-  const [selectAll, setSelectAll] = useState(props.selectAll ? true : false);
+  // const [selectAll, setSelectAll] = useState(props.selectAll ? true : false);
 
   const handleEmailSelect = (emailId: string, selected: boolean) => {
     let updatedSelectedEmails: string[];
@@ -55,25 +56,26 @@ export default function EmailStack(props: EmailStackProps) {
 
     setSelectedEmails(updatedSelectedEmails);
     props.selectedEmails && props.selectedEmails(updatedSelectedEmails);
-    if (props.emails) {
-      setSelectAll(updatedSelectedEmails.length === props.emails.length);
-    }
+    props.showToolbar && props.showToolbar(updatedSelectedEmails.length > 0);
+    // if (props.emails) {
+    //   setSelectAll(updatedSelectedEmails.length === props.emails.length);
+    // }
   };
 
-  const handleSelectAll = () => {
-    let allEmailIds: string[] = [];
-    if (props.emails) {
-      allEmailIds = props.emails.map((email) => email.id);
-    }
+  // const handleSelectAll = () => {
+  //   let allEmailIds: string[] = [];
+  //   if (props.emails) {
+  //     allEmailIds = props.emails.map((email) => email.id);
+  //   }
 
-    if (selectAll) {
-      setSelectedEmails([]);
-    } else {
-      setSelectedEmails(allEmailIds);
-    }
+  //   if (selectAll) {
+  //     setSelectedEmails([]);
+  //   } else {
+  //     setSelectedEmails(allEmailIds);
+  //   }
 
-    setSelectAll(!selectAll);
-  };
+  //   setSelectAll(!selectAll);
+  // };
 
   return (
     <div className={style.container}>

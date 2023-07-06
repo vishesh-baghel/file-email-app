@@ -5,6 +5,8 @@ import style from "./Inbox.module.css";
 import EmailStack from "../EmailList/EmailStack";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import MarkEmailReadIcon from '@mui/icons-material/MarkEmailRead';
+import MarkunreadIcon from '@mui/icons-material/Markunread';
 import Button from "../../elements/Button/Button";
 import emailApi from "../../services/api/emailApi";
 import { Email } from "../../services/model/email";
@@ -19,6 +21,8 @@ export default function Inbox(props: InboxProps) {
   const [selectAllChecked, setSelectAllChecked] = useState<boolean>(false);
   const [emailList, setEmailList] = useState<Email[]>([]);
   const [selectedEmails, setSelectedEmails] = useState<string[]>([]);
+  const [showToolbar, setShowToolbar] = useState<boolean>(false);
+  const [toggleReadButton, setToggleReadButton] = useState<boolean>(false);
 
   useEffect(() => {
     if (location.pathname === "/" && props.setSearchPlaceholderText) {
@@ -41,6 +45,22 @@ export default function Inbox(props: InboxProps) {
       });
     }
   };
+
+  const handleMarkAsReadButton = () => {
+    setToggleReadButton(!toggleReadButton);
+  };
+
+  const handleMarkAsUnReadButton = () => {
+    setToggleReadButton(!toggleReadButton);
+  };
+
+  const updateReadStatus = (emailId: string, read: boolean) => {
+    if (emailApi.put) {
+      emailApi.put({ ...emailList.find((email) => email.id === emailId), read: read }).then(() => {
+        getEmails();
+      });
+    }
+  }
 
   useEffect(() => {
     getEmails();
@@ -70,17 +90,31 @@ export default function Inbox(props: InboxProps) {
             onClick={handleRefreshButton}
           />
         </div>
-        <div className={style.deleteButton}>
-          <Button
+        <div className={style.toolbar}>
+          {showToolbar && <>
+          <div className={style.deleteButton}>
+            <Button
             content={<DeleteOutlineIcon fontSize="small" />}
             onClick={handleDeleteButton}
-          />
+            />
+          </div>
+          {toggleReadButton ? <div className={style.markAsReadButton}>
+            <Button content={<MarkEmailReadIcon fontSize="small" />} 
+            onClick={handleMarkAsReadButton}
+            />
+          </div> : <div className={style.markAsUnreadButton}>
+          <Button content={<MarkunreadIcon fontSize="small" />} 
+            onClick={handleMarkAsUnReadButton}
+            />
+          </div>}
+          </>}
         </div>
       </div>
       <EmailStack
         selectAll={selectAllChecked}
         emails={emailList}
         selectedEmails={setSelectedEmails}
+        showToolbar={setShowToolbar}
       />
     </div>
   );

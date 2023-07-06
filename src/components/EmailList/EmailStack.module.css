@@ -14,6 +14,7 @@
   border-bottom: 1px solid var(--black);
   cursor: pointer;
   scroll-behavior: auto;
+  font-weight: 700;
 }
 
 .emailItemCheckbox {

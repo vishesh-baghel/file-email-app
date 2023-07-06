@@ -3,6 +3,7 @@
     {
       "id": 1,
       "checked": false,
+      "read": false,
       "from": "John Doe",
       "subject": "Hello, some long subject that is too long to fit in the box",
       "body": "Hello World, from another world, I am your father, Luke Skywalker",
@@ -11,6 +12,7 @@
     {
       "id": 2,
       "checked": false,
+      "read": false,
       "from": "Vishesh",
       "subject": "Hello, some long subject that is too long to fit in the box 2",
       "body": "Hello World, from another world, I am your father, Luke Skywalker",

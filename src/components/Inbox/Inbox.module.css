@@ -23,7 +23,12 @@
   justify-content: center;
 }
 
-.refreshButton {
+.toolbar {
+  display: flex;
+  flex-direction: row;
+}
+
+.refreshButton .deleteButton .markAsReadButton .markAsUnreadButton{
   cursor: pointer;
   display: flex;
   justify-content: center;
