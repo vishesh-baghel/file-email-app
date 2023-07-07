@@ -5,7 +5,7 @@ export class ApiCore {
   getAll?: () => Promise<any>;
   getOne?: (id: string) => Promise<any>;
   post?: (model: any) => Promise<any>;
-  put?: (model: any) => Promise<any>;
+  put?: (model: any, id: string) => Promise<any>;
   remove?: (id: string) => Promise<any>;
   removeMultiple?: (ids: string[]) => Promise<any>;
 
@@ -29,8 +29,8 @@ export class ApiCore {
     }
 
     if (options.put) {
-      this.put = (model: any) => {
-        return apiProvider.put(options.url!, model);
+      this.put = (model: any, id: string) => {
+        return apiProvider.put(options.url!, model, id);
       };
     }
 

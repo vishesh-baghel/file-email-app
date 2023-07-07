@@ -23,6 +23,7 @@ export default function Inbox(props: InboxProps) {
   const [selectedEmails, setSelectedEmails] = useState<string[]>([]);
   const [showToolbar, setShowToolbar] = useState<boolean>(false);
   const [toggleReadButton, setToggleReadButton] = useState<boolean>(false);
+  const [emailItemCSS, setEmailItemCSS] = useState<string>("style.emailItemContainer");
 
   useEffect(() => {
     if (location.pathname === "/" && props.setSearchPlaceholderText) {
@@ -48,18 +49,22 @@ export default function Inbox(props: InboxProps) {
 
   const handleMarkAsReadButton = () => {
     setToggleReadButton(!toggleReadButton);
+    updateReadStatus(selectedEmails, true);
   };
 
   const handleMarkAsUnReadButton = () => {
     setToggleReadButton(!toggleReadButton);
+    updateReadStatus(selectedEmails, false);
   };
 
-  const updateReadStatus = (emailId: string, read: boolean) => {
-    if (emailApi.put) {
-      emailApi.put({ ...emailList.find((email) => email.id === emailId), read: read }).then(() => {
-        getEmails();
-      });
-    }
+  const updateReadStatus = (emails: string[], read: boolean) => {
+    emails.forEach((emailId) => {
+      if (emailApi.put) {
+        emailApi.put({ ...emailList.find((email) => email.id === emailId), read: !read }, emailId).then(() => {
+          getEmails();
+        });
+      }
+    })
   }
 
   useEffect(() => {
@@ -115,6 +120,8 @@ export default function Inbox(props: InboxProps) {
         emails={emailList}
         selectedEmails={setSelectedEmails}
         showToolbar={setShowToolbar}
+        emailItemCSS={emailItemCSS}
+        setEmailItemCSS={setEmailItemCSS}
       />
     </div>
   );

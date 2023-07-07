@@ -24,9 +24,9 @@ async function post<T>(resource: string, model: T): Promise<AxiosResponse> {
     .catch(handleError);
 }
 
-async function put<T>(resource: string, model: T): Promise<AxiosResponse> {
+async function put<T>(resource: string, model: T, id: string): Promise<AxiosResponse> {
   return axios
-    .put(`${BASE_URL}/${resource}`, model)
+    .put(`${BASE_URL}/${resource}/${id}`, model)
     .then(handleResponse)
     .catch(handleError);
 }

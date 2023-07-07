@@ -17,6 +17,19 @@
   font-weight: 700;
 }
 
+.emailItemContainerOpened {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 2rem;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--black);
+  cursor: pointer;
+  scroll-behavior: auto;
+  font-weight: 700;
+  background-color: var(--light-grey);
+}
+
 .emailItemCheckbox {
   display: flex;
   align-items: center;

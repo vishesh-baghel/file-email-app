@@ -1,31 +1,36 @@
 import style from "./EmailStack.module.css";
-import emailApi from "../../services/api/emailApi";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Email } from "../../services/model/email";
 
 export interface EmailStackProps {
   emails?: Email[];
   selectedEmails?: React.Dispatch<React.SetStateAction<string[]>>;
   showToolbar?: React.Dispatch<React.SetStateAction<boolean>>;
+  emailItemCSS?: string;
+  setEmailItemCSS?: React.Dispatch<React.SetStateAction<string>>;
   selectAll?: boolean;
 }
 
 interface EmailItemProps {
   email: Email;
   selectAll?: boolean;
+  emailItemCSS?: string;
+  setEmailItemCSS?: React.Dispatch<React.SetStateAction<string>>;
   onSelect: (emailId: string, selected: boolean) => void;
 }
 
 const EmailItem = (props: EmailItemProps) => {
   const [selected, setSelected] = useState(false);
+
   const handleEmailItemCheckbox = () => {
     props.onSelect(props.email.id, !selected);
+    props.setEmailItemCSS && props.setEmailItemCSS('style.emailItemContainerOpened');
     // setSelected(!selected && props.selectAll ? true : !selected);
     setSelected(!selected);
   };
 
   return (
-    <div className={style.emailItemContainer}>
+    <div className={props.emailItemCSS} >
       <div className={style.emailItemCheckbox}>
         <input
           type="checkbox"
@@ -87,6 +92,8 @@ export default function EmailStack(props: EmailStackProps) {
                 key={email.id}
                 email={email}
                 onSelect={handleEmailSelect}
+                emailItemCSS={props.emailItemCSS}
+                setEmailItemCSS={props.setEmailItemCSS}
               />
             </>
           );
