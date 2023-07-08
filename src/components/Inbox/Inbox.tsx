@@ -23,7 +23,7 @@ export default function Inbox(props: InboxProps) {
   const [selectedEmails, setSelectedEmails] = useState<string[]>([]);
   const [showToolbar, setShowToolbar] = useState<boolean>(false);
   const [toggleReadButton, setToggleReadButton] = useState<boolean>(false);
-  const [emailItemCSS, setEmailItemCSS] = useState<string>("style.emailItemContainer");
+  const [emailItemCSS, setEmailItemCSS] = useState<string>(style.emailItemContainer);
 
   useEffect(() => {
     if (location.pathname === "/" && props.setSearchPlaceholderText) {

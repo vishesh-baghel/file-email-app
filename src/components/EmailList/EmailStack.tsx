@@ -24,10 +24,17 @@ const EmailItem = (props: EmailItemProps) => {
 
   const handleEmailItemCheckbox = () => {
     props.onSelect(props.email.id, !selected);
-    props.setEmailItemCSS && props.setEmailItemCSS('style.emailItemContainerOpened');
+
     // setSelected(!selected && props.selectAll ? true : !selected);
     setSelected(!selected);
+    if (selected) {
+      props.setEmailItemCSS && props.setEmailItemCSS(style.emailItemContainerOpened);
+    } else {
+      props.setEmailItemCSS && props.setEmailItemCSS(style.emailItemContainer);
+    }
   };
+
+  console.log(props.emailItemCSS);
 
   return (
     <div className={props.emailItemCSS} >
