@@ -1,6 +1,9 @@
 import style from "./EmailStack.module.css";
 import React, { useState } from "react";
 import { Email } from "../../services/model/email";
+import { Link } from "react-router-dom";
+import EmailPage from "../../pages/EmailPage/Email";
+import { inherits } from "util";
 
 export interface EmailStackProps {
   emails?: Email[];
@@ -36,7 +39,13 @@ const EmailItem = (props: EmailItemProps) => {
 
   console.log(props.emailItemCSS);
 
+  const linkStyle = {
+    textDecoration: 'none', // Set text-decoration to none
+    color: 'inherit'
+  };
+
   return (
+    <Link to={`/email/${props.email.id}`} style={linkStyle}>
     <div className={props.emailItemCSS} >
       <div className={style.emailItemCheckbox}>
         <input
@@ -50,6 +59,7 @@ const EmailItem = (props: EmailItemProps) => {
       <div className={style.emailItemBody}>{props.email.body}</div>
       <div className={style.emailItemDateOrTime}>{props.email.date}</div>
     </div>
+    </Link>
   );
 };
 

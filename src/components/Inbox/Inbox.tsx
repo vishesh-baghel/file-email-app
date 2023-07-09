@@ -2,6 +2,7 @@ import * as React from "react";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import style from "./Inbox.module.css";
+import emailStyle from "../EmailList/EmailStack.module.css";
 import EmailStack from "../EmailList/EmailStack";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
@@ -23,7 +24,7 @@ export default function Inbox(props: InboxProps) {
   const [selectedEmails, setSelectedEmails] = useState<string[]>([]);
   const [showToolbar, setShowToolbar] = useState<boolean>(false);
   const [toggleReadButton, setToggleReadButton] = useState<boolean>(false);
-  const [emailItemCSS, setEmailItemCSS] = useState<string>(style.emailItemContainer);
+  const [emailItemCSS, setEmailItemCSS] = useState<string>(emailStyle.emailItemContainer);
 
   useEffect(() => {
     if (location.pathname === "/" && props.setSearchPlaceholderText) {
