@@ -8,6 +8,7 @@ import { useState } from "react";
 import Outbox from "./components/Outbox/Outbox";
 import Compose from "./pages/Compose/Compose";
 import Drafts from "./pages/Drafts/Drafts";
+import EmailPage from "./pages/EmailPage/EmailPage";
 
 function App() {
   const [searchPlaceholder, setSearchPlaceholder] = useState("");
@@ -51,6 +52,7 @@ function App() {
               }
             />
             <Route path="/compose" element={<Compose />} />
+            <Route path="/email/:id" element={<EmailPage />} />
           </Routes>
         </div>
       </body>

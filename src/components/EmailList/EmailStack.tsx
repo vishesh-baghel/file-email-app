@@ -2,7 +2,7 @@ import style from "./EmailStack.module.css";
 import React, { useState } from "react";
 import { Email } from "../../services/model/email";
 import { Link } from "react-router-dom";
-import EmailPage from "../../pages/EmailPage/Email";
+import EmailPage from "../../pages/EmailPage/EmailPage";
 import { inherits } from "util";
 
 export interface EmailStackProps {
@@ -40,7 +40,7 @@ const EmailItem = (props: EmailItemProps) => {
   console.log(props.emailItemCSS);
 
   const linkStyle = {
-    textDecoration: 'none', // Set text-decoration to none
+    textDecoration: 'none', 
     color: 'inherit'
   };
 
