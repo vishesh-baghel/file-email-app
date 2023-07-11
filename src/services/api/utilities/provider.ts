@@ -11,6 +11,7 @@ async function getAll(resource: string): Promise<AxiosResponse> {
 }
 
 async function getOne(resource: string, id: string): Promise<AxiosResponse> {
+  console.log(`${BASE_URL}/${resource}/${id}`);
   return axios
     .get(`${BASE_URL}/${resource}/${id}`)
     .then(handleResponse)

@@ -17,7 +17,7 @@ export class ApiCore {
     }
 
     if (options.getOne) {
-      this.getOne = (id: string) => {
+      this.getOne = (id) => {
         return apiProvider.getOne(options.url!, id);
       };
     }
