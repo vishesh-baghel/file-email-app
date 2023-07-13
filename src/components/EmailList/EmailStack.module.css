@@ -46,7 +46,7 @@
 }
 
 .emailItemSubject {
-  display: flex;
+  display: inline-block;
   align-items: center;
   justify-content: left;
   width: 35%;
@@ -58,7 +58,7 @@
 }
 
 .emailItemBody {
-  display: flex;
+  display: inline-block;
   align-items: center;
   justify-content: left;
   width: 30%;

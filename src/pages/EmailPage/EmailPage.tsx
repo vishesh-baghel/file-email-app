@@ -4,6 +4,7 @@ import style from "./EmailPage.module.css";
 import { Email } from "../../services/model/email";
 import { useLocation } from "react-router-dom";
 import Button from "../../elements/Button/Button";
+import CancelIcon from '@mui/icons-material/Cancel';
 
 export interface EmailPageProps {}
 
@@ -11,6 +12,7 @@ export default function EmailPage(props: EmailPageProps) {
   const [emailId, setEmailId] = useState<string>("");
   const [email, setEmail] = useState<Email>({} as Email);
   const [showReplyTextArea, setShowReplyTextArea] = useState<boolean>(false);
+  const [selectedFiles, setSelectedFiles] = useState<FileList | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -30,6 +32,18 @@ export default function EmailPage(props: EmailPageProps) {
 
   const handleReplyButton = () => {
     setShowReplyTextArea(!showReplyTextArea);
+  };
+
+  const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files;
+    if (files && files.length > 0) {
+      setSelectedFiles(files);
+    } 
+  };
+
+  const convertToMegaBytes = (bytes: number) => {
+    const megaBytes =  bytes / (1024 * 1024);
+    return megaBytes.toFixed(2);
   };
 
   return (
@@ -55,10 +69,20 @@ export default function EmailPage(props: EmailPageProps) {
                 />
               </div>
               <div className={style.replyAttachments}>
-                <input type="file" />
+                <input className={style.attachmentButton} multiple type="file" onChange={handleFileSelect} />
+              </div>
+              <div className={style.attachmentContainer}>
+                {selectedFiles &&
+                  Array.from(selectedFiles).map((file, index) => (
+                    <div className={style.attachmentItem} key={index}>
+                      <span className={style.attachmentName}>{file.name}</span>
+                      <span className={style.attachmentSize}>{`${convertToMegaBytes(file.size)} MB`}</span>
+                      <span className={style.attachmentDelete}><CancelIcon fontSize="small"/></span>
+                    </div>
+                  ))}
               </div>
               <div className={style.sendButton}>
-                <Button content={"Send"} />
+                <Button content="Send" />
               </div>
             </>
           )}

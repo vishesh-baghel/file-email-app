@@ -2,8 +2,6 @@ import style from "./EmailStack.module.css";
 import React, { useState } from "react";
 import { Email } from "../../services/model/email";
 import { Link } from "react-router-dom";
-import EmailPage from "../../pages/EmailPage/EmailPage";
-import { inherits } from "util";
 
 export interface EmailStackProps {
   emails?: Email[];
@@ -31,7 +29,8 @@ const EmailItem = (props: EmailItemProps) => {
     // setSelected(!selected && props.selectAll ? true : !selected);
     setSelected(!selected);
     if (selected) {
-      props.setEmailItemCSS && props.setEmailItemCSS(style.emailItemContainerOpened);
+      props.setEmailItemCSS &&
+        props.setEmailItemCSS(style.emailItemContainerOpened);
     } else {
       props.setEmailItemCSS && props.setEmailItemCSS(style.emailItemContainer);
     }
@@ -40,13 +39,12 @@ const EmailItem = (props: EmailItemProps) => {
   console.log(props.emailItemCSS);
 
   const linkStyle = {
-    textDecoration: 'none', 
-    color: 'inherit'
+    textDecoration: "none",
+    color: "inherit",
   };
 
   return (
-    <Link to={`/email/${props.email.id}`} style={linkStyle}>
-    <div className={props.emailItemCSS} >
+    <div className={style.emailItemContainer}>
       <div className={style.emailItemCheckbox}>
         <input
           type="checkbox"
@@ -54,12 +52,15 @@ const EmailItem = (props: EmailItemProps) => {
           onChange={handleEmailItemCheckbox}
         />
       </div>
-      <div className={style.emailItemSender}>{props.email.from}</div>
-      <div className={style.emailItemSubject}>{props.email.subject}</div>
-      <div className={style.emailItemBody}>{props.email.body}</div>
-      <div className={style.emailItemDateOrTime}>{props.email.date}</div>
+      <Link to={`/email/${props.email.id}`} style={linkStyle}>
+        <div className={props.emailItemCSS}>
+          <div className={style.emailItemSender}>{props.email.from}</div>
+          <div className={style.emailItemSubject}>{props.email.subject}</div>
+          <div className={style.emailItemBody}>{props.email.body}</div>
+          <div className={style.emailItemDateOrTime}>{props.email.date}</div>
+        </div>
+      </Link>
     </div>
-    </Link>
   );
 };
 
