@@ -4,7 +4,8 @@ import style from "./EmailPage.module.css";
 import { Email } from "../../services/model/email";
 import { useLocation } from "react-router-dom";
 import Button from "../../elements/Button/Button";
-import CancelOutlined from '@mui/icons-material/CancelOutlined';
+import CancelOutlined from "@mui/icons-material/CancelOutlined";
+import AttachmentIcon from '@mui/icons-material/Attachment';
 
 export interface EmailPageProps {}
 
@@ -15,7 +16,7 @@ export default function EmailPage(props: EmailPageProps) {
   const [selectedFiles, setSelectedFiles] = useState<FileList | null>(null);
   const location = useLocation();
   const inputRef = useRef<HTMLInputElement>(null);
-  
+
   useEffect(() => {
     const emailId = location.pathname.split("/")[2];
     setEmailId(emailId);
@@ -39,11 +40,11 @@ export default function EmailPage(props: EmailPageProps) {
     const files = event.target.files;
     if (files && files.length > 0) {
       setSelectedFiles(files);
-    } 
+    }
   };
 
   const convertToMegaBytes = (bytes: number) => {
-    const megaBytes =  bytes / (1024 * 1024);
+    const megaBytes = bytes / (1024 * 1024);
     return megaBytes.toFixed(2);
   };
 
@@ -55,15 +56,16 @@ export default function EmailPage(props: EmailPageProps) {
       const updatedFileList = new DataTransfer();
       files.forEach((file) => updatedFileList.items.add(file));
       inputRef.current.files = updatedFileList.files;
+      setSelectedFiles(updatedFileList.files);
     }
   };
-  
+
   return (
     <div className={style.container}>
       <div className={style.header}>
-        <span className={style.from}>From : {email.from}</span>
-        <span className={style.subject}>Subject : {email.subject}</span>
-        <span className={style.date}>Date : {email.date}</span>
+        <span className={style.subject}>{email.subject}</span>
+        <span className={style.from}>{email.from}</span>
+        <span className={style.date}>{email.date}</span>
       </div>
       <div className={style.content}>
         <div className={style.body}>{email.body}</div>
@@ -81,17 +83,36 @@ export default function EmailPage(props: EmailPageProps) {
                 />
               </div>
               <div className={style.replyAttachments}>
-                <input className={style.attachmentButton} multiple type="file" onChange={handleFileSelect} />
+                <label htmlFor="file-upload" className={style.attachmentButton}>
+                  <span className="icon">
+                    <AttachmentIcon />
+                  </span>
+                </label>
+                <input
+                  id="file-upload"
+                  className={style.hidden}
+                  ref={inputRef}
+                  multiple
+                  type="file"
+                  onChange={handleFileSelect}
+                />
               </div>
               <div className={style.attachmentContainer}>
                 {selectedFiles &&
                   Array.from(selectedFiles).map((file, index) => (
                     <div className={style.attachmentItem} key={index}>
                       <span className={style.attachmentName}>{file.name}</span>
-                      <span className={style.attachmentSize}>{`${convertToMegaBytes(file.size)} MB`}</span>
-                      <span className={style.attachmentDelete}><CancelOutlined fontSize="small" onClick={() => {
-                        handleFileRemoval(index);
-                      }}/></span>
+                      <span
+                        className={style.attachmentSize}
+                      >{`${convertToMegaBytes(file.size)} MB`}</span>
+                      <span className={style.attachmentDelete}>
+                        <CancelOutlined
+                          fontSize="small"
+                          onClick={() => {
+                            handleFileRemoval(index);
+                          }}
+                        />
+                      </span>
                     </div>
                   ))}
               </div>
