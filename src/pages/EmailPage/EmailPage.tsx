@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import emailApi from "../../services/api/emailApi";
 import style from "./EmailPage.module.css";
 import { Email } from "../../services/model/email";
 import { useLocation } from "react-router-dom";
 import Button from "../../elements/Button/Button";
-import CancelIcon from '@mui/icons-material/Cancel';
+import CancelOutlined from '@mui/icons-material/CancelOutlined';
 
 export interface EmailPageProps {}
 
@@ -14,7 +14,8 @@ export default function EmailPage(props: EmailPageProps) {
   const [showReplyTextArea, setShowReplyTextArea] = useState<boolean>(false);
   const [selectedFiles, setSelectedFiles] = useState<FileList | null>(null);
   const location = useLocation();
-
+  const inputRef = useRef<HTMLInputElement>(null);
+  
   useEffect(() => {
     const emailId = location.pathname.split("/")[2];
     setEmailId(emailId);
@@ -46,6 +47,17 @@ export default function EmailPage(props: EmailPageProps) {
     return megaBytes.toFixed(2);
   };
 
+  const handleFileRemoval = (indexToRemove: number) => {
+    console.log(indexToRemove);
+    if (inputRef.current && inputRef.current.files) {
+      const files = Array.from(inputRef.current.files);
+      files.splice(indexToRemove, 1);
+      const updatedFileList = new DataTransfer();
+      files.forEach((file) => updatedFileList.items.add(file));
+      inputRef.current.files = updatedFileList.files;
+    }
+  };
+  
   return (
     <div className={style.container}>
       <div className={style.header}>
@@ -77,7 +89,9 @@ export default function EmailPage(props: EmailPageProps) {
                     <div className={style.attachmentItem} key={index}>
                       <span className={style.attachmentName}>{file.name}</span>
                       <span className={style.attachmentSize}>{`${convertToMegaBytes(file.size)} MB`}</span>
-                      <span className={style.attachmentDelete}><CancelIcon fontSize="small"/></span>
+                      <span className={style.attachmentDelete}><CancelOutlined fontSize="small" onClick={() => {
+                        handleFileRemoval(index);
+                      }}/></span>
                     </div>
                   ))}
               </div>

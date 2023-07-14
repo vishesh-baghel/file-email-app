@@ -1,6 +1,6 @@
 import * as React from "react";
 import style from "./Drafts.module.css";
-import EmailStack from "../../components/EmailList/EmailStack";
+import EmailStack from "../../components/EmailStack/EmailStack";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 

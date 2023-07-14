@@ -1,184 +1,203 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    overflow: hidden;
-    box-shadow: 0 0 3px var(--black);
-    padding: 1rem;
-    margin: 1rem;
-    border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  box-shadow: 0 0 3px var(--black);
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 5px;
 }
 
 .header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    font-weight: 600;
-    padding: 0 1rem;
-    height: 10rem;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-weight: 600;
+  padding: 0 1rem;
+  height: 10rem;
+  width: 100%;
 }
 
 .content {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    justify-content: flex-start;
-    padding: 0 1rem;
-    height: 100%;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: flex-start;
+  padding: 0 1rem;
+  height: 100%;
+  width: 100%;
 }
 
 .from {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0 1rem;
-    height: 3rem;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 1rem;
+  height: 3rem;
+  width: 100%;
 }
 
 .subject {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    font-weight: 600;
-    padding: 0 1rem;
-    height: 3rem;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  font-weight: 600;
+  padding: 0 1rem;
+  height: 3rem;
+  width: 100%;
 }
 
 .date {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    font-weight: 600;
-    padding: 0 1rem;
-    height: 3rem;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  font-weight: 600;
+  padding: 0 1rem;
+  height: 3rem;
+  width: 100%;
 }
 
 .body {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    height: 3rem;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  height: 3rem;
+  width: 100%;
 }
 
 .replyButton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-    height: 1rem;
-    width: 80px;
-    padding: 0.3rem 0 0.3rem 0;
-    border-radius: 5px;
-    background-color: var(--secondary-color);
-    color: var(--white);
-    border: 1px solid var(--secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  height: 1rem;
+  width: 80px;
+  padding: 0.3rem 0 0.3rem 0;
+  border-radius: 5px;
+  background-color: var(--secondary-color);
+  color: var(--white);
+  border: 1px solid var(--secondary-color);
 }
 
 .replyButton:hover {
-    background-color: var(--secondary-color-hover);
-    cursor: pointer;
+  background-color: var(--secondary-color-hover);
+  cursor: pointer;
 }
 
 .replyContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    justify-content: flex-start;
-    height: 100%;
-    width: 100%;
-    margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+  margin-top: 10px;
 }
 
 .replyBody {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    justify-content: flex-start;
-    width: 40rem;
-    margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: flex-start;
+  width: 40rem;
+  margin-top: 10px;
 }
 
 .replyTextArea {
-    border: none;
-    box-shadow: 0 0 3px var(--black);
-    padding: .5rem;
-    border-radius: 5px;
-    height: 10rem;
-    width: 100%;
+  border: none;
+  box-shadow: 0 0 3px var(--black);
+  padding: 0.5rem;
+  border-radius: 5px;
+  height: 10rem;
+  width: 100%;
 }
 
 .replyTextArea:focus {
-    outline: none;
+  outline: none;
 }
 
 .replyAttachments {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    width: 40rem;
-    margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 40rem;
+  margin-top: 10px;
 }
 
 .attachmentButton {
-    display: inline-block;
-    padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-    color: #555;
-    border-radius: 4px;
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  color: #555;
+  border-radius: 4px;
 }
 
 .attachmentContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    justify-content: flex-start;
-    width: 25rem;
-    margin-top: 10px;
+  display: inline-block;
+  flex-direction: column;
+  align-items: left;
+  justify-content: flex-start;
+  margin-top: 5px;
 }
 
 .attachmentItem {
-    display: inline-flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    margin-top: 10px;
-    background-color: var(--light-gray);
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5px;
+  margin-right: 5px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-top: 10px;
+  background-color: var(--light-gray);
 }
 
 .attachmentName {
-    display: inline-block;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-gray)
+}
+
+.attachmentSize {
+  display: inline-block;
+  margin-left: 10px;
+  color: var(--text-gray)
+}
+
+.attachmentDelete {
+  display: inline-block;
+  margin-left: 5px;
+  color: var(--black);
+  cursor: pointer;
 }
 
 .sendButton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-    height: 1rem;
-    width: 70px;
-    padding: 0.3rem 0 0.3rem 0;
-    border-radius: 5px;
-    background-color: var(--secondary-color);
-    color: var(--white);
-    border: 1px solid var(--secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  height: 1rem;
+  width: 70px;
+  padding: 0.3rem 0 0.3rem 0;
+  border-radius: 5px;
+  background-color: var(--secondary-color);
+  color: var(--white);
+  border: 1px solid var(--secondary-color);
 }
 
 .sendButton:hover {
-    background-color: var(--secondary-color-hover);
-    cursor: pointer;
-    height: 1rem;
+  background-color: var(--secondary-color-hover);
+  cursor: pointer;
+  height: 1rem;
 }

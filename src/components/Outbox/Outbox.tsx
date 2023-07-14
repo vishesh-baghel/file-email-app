@@ -2,7 +2,7 @@ import * as React from "react";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import style from "./Outbox.module.css";
-import EmailStack from "../EmailList/EmailStack";
+import EmailStack from "../EmailStack/EmailStack";
 
 export interface OutboxProps {
   searchPlaceholderText?: string;
