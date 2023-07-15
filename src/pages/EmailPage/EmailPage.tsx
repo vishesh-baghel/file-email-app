@@ -5,7 +5,7 @@ import { Email } from "../../services/model/email";
 import { useLocation } from "react-router-dom";
 import Button from "../../elements/Button/Button";
 import CancelOutlined from "@mui/icons-material/CancelOutlined";
-import AttachmentIcon from '@mui/icons-material/Attachment';
+import AttachmentIcon from "@mui/icons-material/Attachment";
 
 export interface EmailPageProps {}
 
@@ -82,20 +82,26 @@ export default function EmailPage(props: EmailPageProps) {
                   placeholder={`Reply to ${email.from}`}
                 />
               </div>
-              <div className={style.replyAttachments}>
-                <label htmlFor="file-upload" className={style.attachmentButton}>
-                  <span className="icon">
-                    <AttachmentIcon />
-                  </span>
-                </label>
-                <input
-                  id="file-upload"
-                  className={style.hidden}
-                  ref={inputRef}
-                  multiple
-                  type="file"
-                  onChange={handleFileSelect}
-                />
+              <div className={style.replyToolbar}>
+                <div>
+                  <label
+                    htmlFor="file-upload"
+                    className={style.attachmentButton}
+                  >
+                    <span className="icon">
+                      <AttachmentIcon />
+                    </span>
+                  </label>
+                  <input
+                    id="file-upload"
+                    className={style.hidden}
+                    ref={inputRef}
+                    multiple
+                    type="file"
+                    onChange={handleFileSelect}
+                  />
+                </div>
+                <div>tools</div>
               </div>
               <div className={style.attachmentContainer}>
                 {selectedFiles &&
