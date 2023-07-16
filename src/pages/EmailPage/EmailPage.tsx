@@ -4,8 +4,7 @@ import style from "./EmailPage.module.css";
 import { Email } from "../../services/model/email";
 import { useLocation } from "react-router-dom";
 import Button from "../../elements/Button/Button";
-import CancelOutlined from "@mui/icons-material/CancelOutlined";
-import AttachmentIcon from "@mui/icons-material/Attachment";
+import Toolbar from "../../components/Toolbar/Toolbar";
 
 export interface EmailPageProps {}
 
@@ -43,11 +42,6 @@ export default function EmailPage(props: EmailPageProps) {
     }
   };
 
-  const convertToMegaBytes = (bytes: number) => {
-    const megaBytes = bytes / (1024 * 1024);
-    return megaBytes.toFixed(2);
-  };
-
   const handleFileRemoval = (indexToRemove: number) => {
     console.log(indexToRemove);
     if (inputRef.current && inputRef.current.files) {
@@ -82,46 +76,12 @@ export default function EmailPage(props: EmailPageProps) {
                   placeholder={`Reply to ${email.from}`}
                 />
               </div>
-              <div className={style.replyToolbar}>
-                <div>
-                  <label
-                    htmlFor="file-upload"
-                    className={style.attachmentButton}
-                  >
-                    <span className="icon">
-                      <AttachmentIcon />
-                    </span>
-                  </label>
-                  <input
-                    id="file-upload"
-                    className={style.hidden}
-                    ref={inputRef}
-                    multiple
-                    type="file"
-                    onChange={handleFileSelect}
-                  />
-                </div>
-                <div>tools</div>
-              </div>
-              <div className={style.attachmentContainer}>
-                {selectedFiles &&
-                  Array.from(selectedFiles).map((file, index) => (
-                    <div className={style.attachmentItem} key={index}>
-                      <span className={style.attachmentName}>{file.name}</span>
-                      <span
-                        className={style.attachmentSize}
-                      >{`${convertToMegaBytes(file.size)} MB`}</span>
-                      <span className={style.attachmentDelete}>
-                        <CancelOutlined
-                          fontSize="small"
-                          onClick={() => {
-                            handleFileRemoval(index);
-                          }}
-                        />
-                      </span>
-                    </div>
-                  ))}
-              </div>
+              <Toolbar
+                inputRef={inputRef}
+                handleFileSelect={handleFileSelect}
+                selectedFiles={selectedFiles}
+                handleFileRemoval={handleFileRemoval}
+              />
               <div className={style.sendButton}>
                 <Button content="Send" />
               </div>
