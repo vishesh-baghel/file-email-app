@@ -1,22 +1,42 @@
 import style from "./Toolbar.module.css";
 import AttachmentIcon from "@mui/icons-material/Attachment";
 import CancelOutlined from "@mui/icons-material/CancelOutlined";
+import { useRef } from "react";
 
-export interface AddDocsProps {
-  inputRef: React.RefObject<HTMLInputElement>;
-  handleFileSelect: (event: React.ChangeEvent<HTMLInputElement>) => void;
+export interface ToolbarProps {
+  className?: string;
   selectedFiles: FileList | null;
-  handleFileRemoval: (indexToRemove: number) => void;
+  setSelectedFiles: React.Dispatch<React.SetStateAction<FileList | null>>;
 }
 
-export default function AddDocs(props: AddDocsProps) {
+export default function Toolbar(props: ToolbarProps) {
+  const inputRef = useRef<HTMLInputElement>(null);
+
   const convertToMegaBytes = (bytes: number) => {
     const megaBytes = bytes / (1024 * 1024);
     return megaBytes.toFixed(2);
   };
 
+  const handleFileRemoval = (indexToRemove: number) => {
+    if (inputRef.current && inputRef.current.files) {
+      const files = Array.from(inputRef.current.files);
+      files.splice(indexToRemove, 1);
+      const updatedFileList = new DataTransfer();
+      files.forEach((file) => updatedFileList.items.add(file));
+      inputRef.current.files = updatedFileList.files;
+      props.setSelectedFiles(updatedFileList.files);
+    }
+  };
+
+  const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files;
+    if (files && files.length > 0) {
+      props.setSelectedFiles(files);
+    }
+  };
+
   return (
-    <>
+    <div className={props.className}>
       <div className={style.replyToolbar}>
         <div>
           <label htmlFor="file-upload" className={style.attachmentButton}>
@@ -27,10 +47,10 @@ export default function AddDocs(props: AddDocsProps) {
           <input
             id="file-upload"
             className={style.hidden}
-            ref={props.inputRef}
+            ref={inputRef}
             multiple
             type="file"
-            onChange={props.handleFileSelect}
+            onChange={handleFileSelect}
           />
         </div>
         <div>tools</div>
@@ -47,13 +67,13 @@ export default function AddDocs(props: AddDocsProps) {
                 <CancelOutlined
                   fontSize="small"
                   onClick={() => {
-                    props.handleFileRemoval(index);
+                    handleFileRemoval(index);
                   }}
                 />
               </span>
             </div>
           ))}
       </div>
-    </>
+    </div>
   );
 }

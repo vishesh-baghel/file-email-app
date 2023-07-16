@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import emailApi from "../../services/api/emailApi";
 import style from "./EmailPage.module.css";
 import { Email } from "../../services/model/email";
@@ -14,7 +14,6 @@ export default function EmailPage(props: EmailPageProps) {
   const [showReplyTextArea, setShowReplyTextArea] = useState<boolean>(false);
   const [selectedFiles, setSelectedFiles] = useState<FileList | null>(null);
   const location = useLocation();
-  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const emailId = location.pathname.split("/")[2];
@@ -33,25 +32,6 @@ export default function EmailPage(props: EmailPageProps) {
 
   const handleReplyButton = () => {
     setShowReplyTextArea(!showReplyTextArea);
-  };
-
-  const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = event.target.files;
-    if (files && files.length > 0) {
-      setSelectedFiles(files);
-    }
-  };
-
-  const handleFileRemoval = (indexToRemove: number) => {
-    console.log(indexToRemove);
-    if (inputRef.current && inputRef.current.files) {
-      const files = Array.from(inputRef.current.files);
-      files.splice(indexToRemove, 1);
-      const updatedFileList = new DataTransfer();
-      files.forEach((file) => updatedFileList.items.add(file));
-      inputRef.current.files = updatedFileList.files;
-      setSelectedFiles(updatedFileList.files);
-    }
   };
 
   return (
@@ -77,10 +57,8 @@ export default function EmailPage(props: EmailPageProps) {
                 />
               </div>
               <Toolbar
-                inputRef={inputRef}
-                handleFileSelect={handleFileSelect}
                 selectedFiles={selectedFiles}
-                handleFileRemoval={handleFileRemoval}
+                setSelectedFiles={setSelectedFiles}
               />
               <div className={style.sendButton}>
                 <Button content="Send" />
