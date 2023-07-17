@@ -36,6 +36,42 @@
   outline: none;
 }
 
+.emailId {
+  display: flex;
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+}
+
+.emailIdTag {
+  display: flex;
+  align-items: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0 0.7rem;
+  background-color: var(--light-gray);
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  color: var(--text-gray);
+}
+
+.emailIdTag:hover {
+  background-color: var(--light-gray-hover);
+}
+
+.emailIdTagClose {
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-gray);
+  cursor: pointer;
+}
+
 .ccButton {
   position: absolute;
   top: 0;
@@ -85,4 +121,39 @@
   border: none;
   outline: none;
   font-size: 1.1rem;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 2rem;
+  margin: 1rem 0 1rem 0;
+}
+
+.sendButton,
+.saveToDraftButton,
+.discardButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5rem;
+  margin: 1rem 1rem 1rem 0;
+  border: none;
+  border-radius: 5px;
+  border: 1px solid var(--secondary-color);
+  background-color: var(--white);
+  color: var(--black);
+  font-size: 1rem;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.sendButton:hover,
+.saveToDraftButton:hover,
+.discardButton:hover {
+  background-color: var(--secondary-color);
+  color: var(--white);
 }

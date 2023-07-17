@@ -12,11 +12,6 @@ export interface ToolbarProps {
 export default function Toolbar(props: ToolbarProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const convertToMegaBytes = (bytes: number) => {
-    const megaBytes = bytes / (1024 * 1024);
-    return megaBytes.toFixed(2);
-  };
-
   const handleFileRemoval = (indexToRemove: number) => {
     if (inputRef.current && inputRef.current.files) {
       const files = Array.from(inputRef.current.files);
@@ -57,23 +52,38 @@ export default function Toolbar(props: ToolbarProps) {
       </div>
       <div className={style.attachmentContainer}>
         {props.selectedFiles &&
-          Array.from(props.selectedFiles).map((file, index) => (
-            <div className={style.attachmentItem} key={index}>
-              <span className={style.attachmentName}>{file.name}</span>
-              <span className={style.attachmentSize}>{`${convertToMegaBytes(
-                file.size
-              )} MB`}</span>
-              <span className={style.attachmentDelete}>
-                <CancelOutlined
-                  fontSize="small"
-                  onClick={() => {
-                    handleFileRemoval(index);
-                  }}
-                />
-              </span>
-            </div>
-          ))}
+          Array.from(props.selectedFiles).map((file, index) =>
+            AttachmentItem(index, file, handleFileRemoval)
+          )}
       </div>
+    </div>
+  );
+}
+
+function AttachmentItem(
+  index: number,
+  file: File,
+  handleFileRemoval: (indexToRemove: number) => void
+) {
+  const convertToMegaBytes = (bytes: number) => {
+    const megaBytes = bytes / (1024 * 1024);
+    return megaBytes.toFixed(2);
+  };
+
+  return (
+    <div className={style.attachmentItem} key={index}>
+      <span className={style.attachmentName}>{file.name}</span>
+      <span className={style.attachmentSize}>{`${convertToMegaBytes(
+        file.size
+      )} MB`}</span>
+      <span className={style.attachmentDelete}>
+        <CancelOutlined
+          fontSize="small"
+          onClick={() => {
+            handleFileRemoval(index);
+          }}
+        />
+      </span>
     </div>
   );
 }
