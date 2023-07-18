@@ -5,6 +5,7 @@ export interface Email {
   subject: string;
   body: string;
   date: string;
+  folder: string;
   read?: boolean;
   starred?: boolean;
   important?: boolean;

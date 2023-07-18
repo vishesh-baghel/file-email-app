@@ -3,21 +3,22 @@ import style from "./Compose.module.css";
 import Toolbar from "../../components/Toolbar/Toolbar";
 import { useState } from "react";
 import { CancelOutlined } from "@mui/icons-material";
+import emailApi from "../../services/api/emailApi";
 
 export interface ComposeProps {}
 
 interface FormValues {
-  to: string;
-  cc?: string;
-  bcc?: string;
+  to: string[];
+  cc?: string[];
+  bcc?: string[];
   subject: string;
   message: string;
 }
 
 const initialValues: FormValues = {
-  to: "",
-  cc: "",
-  bcc: "",
+  to: [],
+  cc: [],
+  bcc: [],
   subject: "",
   message: "",
 };
@@ -28,6 +29,11 @@ export default function Compose(props: ComposeProps) {
   const [showBcc, setShowBcc] = useState<boolean>(false);
   const [emailIds, setEmailIds] = useState<string[]>([]);
   const [formValues, setFormValues] = useState<FormValues>(initialValues);
+  const [to, setTo] = useState<string>("");
+  const [cc, setCc] = useState<string>("");
+  const [bcc, setBcc] = useState<string>("");
+  const [subject, setSubject] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
 
   const handleEmailIdSelector = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -42,6 +48,27 @@ export default function Compose(props: ComposeProps) {
     setFormValues(initialValues);
   };
 
+  const handleSendButton = () => {
+    formValues.to = to.split(" ");
+    formValues.cc = cc.split(" ");
+    formValues.bcc = bcc.split(" ");
+    formValues.subject = subject;
+    formValues.message = message;
+
+    if (emailApi.post) {
+      emailApi
+        .post({
+          ...formValues,
+          attachments: selectedFiles,
+        })
+        .then(() => {
+          setFormValues(initialValues);
+        });
+    }
+  };
+
+  const handleSaveToDraftButton = () => {};
+
   return (
     <div className={style.container}>
       <div className={style.header}>
@@ -49,9 +76,13 @@ export default function Compose(props: ComposeProps) {
         <div className={style.inputs}>
           <input
             className={style.to}
+            value={to}
             type="text"
             placeholder="To"
-            onChange={handleEmailIdSelector}
+            onChange={(event) => {
+              setTo(event.target.value);
+              handleEmailIdSelector(event);
+            }}
           />
           <div className={style.emailId}>
             {emailIds.map((emailId) => (
@@ -85,16 +116,47 @@ export default function Compose(props: ComposeProps) {
             Bcc
           </button>
           {showCc && (
-            <input className={style.cc} type="text" placeholder="Cc" />
+            <input
+              className={style.cc}
+              value={cc}
+              type="text"
+              placeholder="Cc"
+              onChange={(event) => {
+                setCc(event.target.value);
+              }}
+            />
           )}
           {showBcc && (
-            <input className={style.bcc} type="text" placeholder="Bcc" />
+            <input
+              className={style.bcc}
+              value={bcc}
+              type="text"
+              placeholder="Bcc"
+              onChange={(event) => {
+                setBcc(event.target.value);
+              }}
+            />
           )}
-          <input className={style.subject} type="text" placeholder="Subject" />
+          <input
+            className={style.subject}
+            value={subject}
+            type="text"
+            placeholder="Subject"
+            onChange={(event) => {
+              setSubject(event.target.value);
+            }}
+          />
         </div>
       </div>
       <div className={style.body}>
-        <textarea className={style.message} placeholder="Message" />
+        <textarea
+          className={style.message}
+          value={message}
+          placeholder="Message"
+          onChange={(event) => {
+            setMessage(event.target.value);
+          }}
+        />
         <Toolbar
           className={style.toolbar}
           selectedFiles={selectedFiles}
@@ -102,10 +164,13 @@ export default function Compose(props: ComposeProps) {
         />
         <div className={style.buttonsContainer}>
           <div className={style.sendButton}>
-            <Button content={"Send"} />
+            <Button content={"Send"} onClick={handleSendButton} />
           </div>
           <div className={style.saveToDraftButton}>
-            <Button content={"Save to Draft"} />
+            <Button
+              content={"Save to Draft"}
+              onClick={handleSaveToDraftButton}
+            />
           </div>
           <div className={style.discardButton}>
             <Button content={"Discard"} onClick={handleDiscardButton} />

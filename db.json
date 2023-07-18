@@ -2,21 +2,93 @@
   "emails": [
     {
       "id": 1,
-      "checked": false,
-      "read": true,
       "from": "John Doe",
+      "to": "Jane Doe",
       "subject": "Hello, some long subject that is too long to fit in the box",
       "body": "Hello World, from another world, I am your father, Luke Skywalker",
-      "date": "10:00 AM"
+      "date": "23 Jan 2015 10:00 AM",
+      "folder": "inbox",
+      "read": true,
+      "starred": true,
+      "important": true,
+      "labels": ["inbox", "important", "sent"],
+      "attachments": [
+        {
+          "name": "cat.jpg",
+          "url": "http://lorempixel.com/100/100/cats/"
+        }
+      ]
     },
     {
       "id": 2,
-      "checked": false,
-      "read": true,
-      "from": "Vishesh",
-      "subject": "Hello, some long subject that is too long to fit in the box 2",
+      "from": "vishesh",
+      "to": "Jane Doe",
+      "subject": "Hello, some long subject that is too long to fit in the box",
       "body": "Hello World, from another world, I am your father, Luke Skywalker",
-      "date": "10:00 AM"
+      "date": "23 Jan 2015 10:00 AM",
+      "folder": "outbox",
+      "read": true,
+      "starred": true,
+      "important": true,
+      "labels": ["inbox", "important", "sent"],
+      "attachments": [
+        {
+          "name": "cat.jpg",
+          "url": "http://lorempixel.com/100/100/cats/"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "from": "Meet",
+      "to": "Jane Doe",
+      "subject": "Hello, some long subject that is too long to fit in the box",
+      "body": "Hello World, from another world, I am your father, Luke Skywalker",
+      "date": "23 Jan 2015 10:00 AM",
+      "folder": "drafts",
+      "read": true,
+      "starred": true,
+      "important": true,
+      "labels": ["inbox", "important", "sent"],
+      "attachments": [
+        {
+          "name": "cat.jpg",
+          "url": "http://lorempixel.com/100/100/cats/"
+        }
+      ]
+    },
+    {
+      "to": ["visheshbaghel"],
+      "cc": [""],
+      "bcc": [""],
+      "subject": "new mail",
+      "message": "new message",
+      "id": 3
+    },
+    {
+      "to": ["visheshbaghel"],
+      "cc": [""],
+      "bcc": [""],
+      "subject": "new mail",
+      "message": "new message",
+      "id": 4
+    },
+    {
+      "to": ["visheshbaghel"],
+      "cc": [""],
+      "bcc": [""],
+      "subject": "new mail",
+      "message": "new message",
+      "id": 5
+    },
+    {
+      "to": ["visheshbaghel"],
+      "cc": [""],
+      "bcc": [""],
+      "subject": "new mail",
+      "message": "new message",
+      "attachments": null,
+      "id": 6
     }
   ],
   "comments": [
