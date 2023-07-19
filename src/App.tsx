@@ -1,4 +1,3 @@
-import React from "react";
 import style from "./App.module.css";
 import Header from "./components/Header/Header";
 import SidePanel from "./components/SidePanel/SidePanel";
