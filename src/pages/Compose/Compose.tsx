@@ -59,7 +59,6 @@ export default function Compose(props: ComposeProps) {
       emailApi
         .post({
           ...formValues,
-          attachments: selectedFiles,
         })
         .then(() => {
           setFormValues(initialValues);
