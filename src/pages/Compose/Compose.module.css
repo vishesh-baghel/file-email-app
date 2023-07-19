@@ -10,7 +10,7 @@
 }
 
 .heading {
-  margin: 0 0 10px 0;
+  margin: 0 0 10px;
 }
 
 .inputs {
@@ -46,7 +46,6 @@
 
 .emailIdTag {
   display: flex;
-  align-items: center;
   align-items: center;
   margin-right: 0.5rem;
   font-size: 1.1rem;
@@ -130,7 +129,7 @@
   align-items: center;
   width: 100%;
   height: 2rem;
-  margin: 1rem 0 1rem 0;
+  margin: 1rem 0;
 }
 
 .sendButton,
@@ -141,7 +140,6 @@
   align-items: center;
   height: 2.5rem;
   margin: 1rem 1rem 1rem 0;
-  border: none;
   border-radius: 5px;
   border: 1px solid var(--secondary-color);
   background-color: var(--white);
