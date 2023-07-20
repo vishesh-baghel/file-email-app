@@ -1,10 +1,12 @@
 export interface Email {
   id: string;
   from: string;
-  to: string;
+  to: string[];
+  cc: string[];
+  bcc: string[];
   subject: string;
-  body: string;
-  date: string;
+  message: string;
+  date: Date;
   folder: string;
   read?: boolean;
   starred?: boolean;

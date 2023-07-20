@@ -4,6 +4,7 @@ import Toolbar from "../../components/Toolbar/Toolbar";
 import { useState } from "react";
 import { CancelOutlined } from "@mui/icons-material";
 import emailApi from "../../services/api/emailApi";
+import { Email } from "../../services/model/email";
 
 export interface ComposeProps {}
 
@@ -55,18 +56,56 @@ export default function Compose(props: ComposeProps) {
     formValues.subject = subject;
     formValues.message = message;
 
+    const email: Email = {
+      id: "",
+      from: "me",
+      to: formValues.to,
+      cc: formValues.cc,
+      bcc: formValues.bcc,
+      subject: formValues.subject,
+      message: formValues.message,
+      attachments: [],
+      read: false,
+      starred: false,
+      date: new Date(),
+      folder: "sent",
+    };
+
     if (emailApi.post) {
-      emailApi
-        .post({
-          ...formValues,
-        })
-        .then(() => {
-          setFormValues(initialValues);
-        });
+      emailApi.post(email).then(() => {
+        setFormValues(initialValues);
+      });
     }
   };
 
-  const handleSaveToDraftButton = () => {};
+  const handleSaveToDraftButton = () => {
+    formValues.to = to.split(" ");
+    formValues.cc = cc.split(" ");
+    formValues.bcc = bcc.split(" ");
+    formValues.subject = subject;
+    formValues.message = message;
+
+    const email: Email = {
+      id: "",
+      from: "me",
+      to: formValues.to,
+      cc: formValues.cc,
+      bcc: formValues.bcc,
+      subject: formValues.subject,
+      message: formValues.message,
+      attachments: [],
+      read: false,
+      starred: false,
+      date: new Date(),
+      folder: "drafts",
+    };
+
+    if (emailApi.post) {
+      emailApi.post(email).then(() => {
+        setFormValues(initialValues);
+      });
+    }
+  };
 
   return (
     <div className={style.container}>

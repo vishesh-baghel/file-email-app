@@ -8,30 +8,45 @@ import Toolbar from "../../components/Toolbar/Toolbar";
 
 export interface EmailPageProps {}
 
+const intialEmail: Email = {
+  id: "",
+  from: "",
+  to: [],
+  cc: [],
+  bcc: [],
+  subject: "",
+  message: "",
+  date: new Date(),
+  folder: "",
+  read: false,
+  starred: false,
+  important: false,
+  labels: [],
+  attachments: [],
+};
+
 export default function EmailPage(props: EmailPageProps) {
-  const [emailId, setEmailId] = useState<string>("");
-  const [email, setEmail] = useState<Email>({} as Email);
+  const [email, setEmail] = useState<Email>(intialEmail);
   const [showReplyTextArea, setShowReplyTextArea] = useState<boolean>(false);
   const [selectedFiles, setSelectedFiles] = useState<FileList | null>(null);
   const location = useLocation();
 
   useEffect(() => {
     const emailId = location.pathname.split("/")[2];
-    setEmailId(emailId);
     getEmailById(emailId);
-  }, [emailId, location.pathname]);
+  }, [location.pathname]);
 
   const getEmailById = (emailId: string) => {
     if (emailApi.getOne) {
       emailApi.getOne(emailId).then((email) => {
         setEmail(email);
-        console.log(email);
       });
     }
   };
 
   const handleReplyButton = () => {
     setShowReplyTextArea(!showReplyTextArea);
+    console.log(email.from);
   };
 
   return (
@@ -39,11 +54,14 @@ export default function EmailPage(props: EmailPageProps) {
       <div className={style.header}>
         <span className={style.subject}>{email.subject}</span>
         <span className={style.from}>{email.from}</span>
-        <span className={style.date}>{email.date}</span>
+        <span className={style.date}>{email.date.getDate()}</span>
       </div>
       <div className={style.content}>
-        <div className={style.body}>{email.body}</div>
-        <div className={style.footer}>Attachments : {email.attachments}</div>
+        <div className={style.body}>{}</div>
+        <div className={style.footer}>
+          Attachments :{" "}
+          {email.attachments && email.attachments.length > 0 ? "Yes" : "No"}
+        </div>
         <div className={style.replyButton}>
           <Button content={"Reply"} onClick={handleReplyButton} />
         </div>

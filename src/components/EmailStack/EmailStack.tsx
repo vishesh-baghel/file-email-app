@@ -56,8 +56,18 @@ const EmailItem = (props: EmailItemProps) => {
         <div className={props.emailItemCSS}>
           <div className={style.emailItemSender}>{props.email.from}</div>
           <div className={style.emailItemSubject}>{props.email.subject}</div>
-          <div className={style.emailItemBody}>{props.email.body}</div>
-          <div className={style.emailItemDateOrTime}>{props.email.date}</div>
+          <div className={style.emailItemBody}>{props.email.message}</div>
+          <div className={style.emailItemDateOrTime}>
+            {
+              props.email.date
+                .toLocaleString("en-US", {
+                  hour: "numeric",
+                  minute: "numeric",
+                  hour12: true,
+                })
+                .split(",")[0]
+            }
+          </div>
         </div>
       </Link>
     </div>
