@@ -89,6 +89,56 @@
       "message": "new message",
       "attachments": null,
       "id": 6
+    },
+    {
+      "to": ["vishesh"],
+      "cc": [""],
+      "bcc": [""],
+      "subject": "susdfsdf",
+      "message": "message",
+      "id": 7
+    },
+    {
+      "id": 8,
+      "from": "me",
+      "to": ["email"],
+      "cc": [""],
+      "bcc": [""],
+      "subject": "new subject",
+      "message": "new message",
+      "attachments": [],
+      "read": false,
+      "starred": false,
+      "date": "2023-07-20T14:30:13.187Z",
+      "folder": "sent"
+    },
+    {
+      "id": 9,
+      "from": "me",
+      "to": ["email"],
+      "cc": ["ccemail"],
+      "bcc": ["bccemail"],
+      "subject": "new subject",
+      "message": "new message",
+      "attachments": [],
+      "read": false,
+      "starred": false,
+      "date": "2023-07-20T14:36:18.587Z",
+      "folder": "sent"
+    },
+    {
+      "id": 10,
+      "from": "me",
+      "to": ["email"],
+      "cc": ["ccemail"],
+      "bcc": ["bccemail"],
+      "subject": "new subject",
+      "message": "new message",
+      "attachments": [],
+      "read": false,
+      "starred": false,
+      "date": "2023-07-20T14:38:29.867Z",
+      "folder": "drafts"
     }
   ],
   "comments": [

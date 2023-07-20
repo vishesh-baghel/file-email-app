@@ -1,10 +1,11 @@
 import { ApiOptions } from "../../model/apiOptions";
 import { apiProvider } from "./provider";
+import { Email } from "../../model/email";
 
 export class ApiCore {
   getAll?: () => Promise<any>;
   getOne?: (id: string) => Promise<any>;
-  post?: (model: any) => Promise<any>;
+  post?: (model: Email) => Promise<any>;
   put?: (model: any, id: string) => Promise<any>;
   remove?: (id: string) => Promise<any>;
   removeMultiple?: (ids: string[]) => Promise<any>;
