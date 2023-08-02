@@ -1,19 +1,8 @@
+const getReqHandler = require("./methods/get-request");
+const postReqHandler = require("./methods/post-request");
+const data = require("./db.json");
 const http = require("http");
 const port = process.env.PORT || 5001;
-
-const getReqHandler = (req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  res.write(JSON.stringify({ message: "Hello World" }));
-  res.end();
-};
-
-const postReqHandler = (req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  res.write(JSON.stringify({ message: "Hello World from post" }));
-  res.end();
-};
 
 const putReqHandler = (req, res) => {
   res.statusCode = 200;
@@ -30,6 +19,7 @@ const deleteReqHandler = (req, res) => {
 };
 
 const server = http.createServer((req, res) => {
+  req.data = data;
   switch (req.method) {
     case "GET":
       getReqHandler(req, res);
