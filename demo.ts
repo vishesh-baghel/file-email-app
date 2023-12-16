@@ -3,6 +3,8 @@ function userCode() {
   const fname = {{request.body.firstName}}
   const lname = {{request.body.lastName}}
 
+  const message = "added this variable";
+
   if (!{{request.body.email}}) {
       return {
           status: 400,
