@@ -1,9 +1,6 @@
 [![CodeQL](https://github.com/vishesh-baghel/email-app/actions/workflows/codeql.yml/badge.svg)](https://github.com/vishesh-baghel/email-app/actions/workflows/codeql.yml)
 # Getting Started with Create React App
 
-## Available Scripts
-
-In the project directory, you can run:
 
 ### `npm start`
 
