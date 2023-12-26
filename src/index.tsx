@@ -9,6 +9,7 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 // more comments
+// one more comment
 root.render(
   <React.StrictMode>
     <BrowserRouter>
