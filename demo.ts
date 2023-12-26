@@ -9,7 +9,7 @@ function userCode() {
           error: "missing email from request body"
       }
   }
-
+// more bugs
   if (!{{request.body.firstName}}) {
       return {
           status: 400,
