@@ -9,6 +9,10 @@ import Compose from "./pages/Compose/Compose";
 import Drafts from "./pages/Drafts/Drafts";
 import EmailPage from "./pages/EmailPage/EmailPage";
 
+/**
+ * checking the new feature.  
+ * @returns 
+ */
 function App() {
   const [searchPlaceholder, setSearchPlaceholder] = useState("");
 
