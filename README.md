@@ -4,7 +4,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 added this line and this one also and again this one and finally this one I hope and now to test new feature and another new feature just came in 
-The build is minified and the filenames include the hashes.\
+The build is minified and the filenames include the hashes.\ finally doing the comment construction
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
