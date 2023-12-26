@@ -5,7 +5,7 @@ const BASE_URL = process.env.REACT_APP_API_URL;
 
 async function getAll(resource: string): Promise<AxiosResponse> {
   return axios
-    .get(`${BASE_URL}/${resource}`)
+    .get(`${BASE_URL}/${resource}`) // more comments
     .then(handleResponse)
     .catch(handleError); // testing pr comment feature
 }

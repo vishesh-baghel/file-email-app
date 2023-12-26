@@ -10,8 +10,8 @@ import Drafts from "./pages/Drafts/Drafts";
 import EmailPage from "./pages/EmailPage/EmailPage";
 
 /**
- * checking the new feature.  
- * @returns 
+ * checking the new feature.  new comment
+ * @returns
  */
 function App() {
   const [searchPlaceholder, setSearchPlaceholder] = useState("");
