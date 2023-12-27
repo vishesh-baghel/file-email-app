@@ -12,6 +12,7 @@ const root = ReactDOM.createRoot(
 // one more comment
 // one more please
 // that didn't work
+// one more comment
 root.render(
   <React.StrictMode>
     <BrowserRouter>
