@@ -9,7 +9,7 @@ const emailApi = new ApiCore({
   put: true,
   remove: true,
   removeMultiple: true,
-  url: url,
+  url: url, // more comments
 });
 
 export default emailApi;

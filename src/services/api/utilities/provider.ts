@@ -5,9 +5,9 @@ const BASE_URL = process.env.REACT_APP_API_URL;
 
 async function getAll(resource: string): Promise<AxiosResponse> {
   return axios
-    .get(`${BASE_URL}/${resource}`)
+    .get(`${BASE_URL}/${resource}`) // more comments
     .then(handleResponse)
-    .catch(handleError);
+    .catch(handleError); // testing pr comment feature
 }
 
 async function getOne(resource: string, id: string): Promise<AxiosResponse> {
@@ -25,7 +25,11 @@ async function post<T>(resource: string, model: T): Promise<AxiosResponse> {
     .catch(handleError);
 }
 
-async function put<T>(resource: string, model: T, id: string): Promise<AxiosResponse> {
+async function put<T>(
+  resource: string,
+  model: T,
+  id: string
+): Promise<AxiosResponse> {
   return axios
     .put(`${BASE_URL}/${resource}/${id}`, model)
     .then(handleResponse)
