@@ -23,7 +23,7 @@ function userCode() {
           status: 400,
           error: "missing last name from the request body"
       }
-  }
+  } // last one
 
   return {
       fullName: firstName + ", " + lastName
