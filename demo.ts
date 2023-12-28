@@ -13,7 +13,7 @@ function userCode() {
   if (!{{request.body.firstName}}) {
       return {
           status: 400,
-          error: "missing first name from the request body"
+          error: "missing first name from the request body" // one bug here also 
       }
   }
 // its having compilation errors
