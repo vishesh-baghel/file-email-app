@@ -41,7 +41,7 @@ function App() {
               element={
                 <Outbox
                   searchPlaceholderText={searchPlaceholder}
-                  setSearchPlaceholderText={setSearchPlaceholder}
+                  setSearchPlaceholderText={setSearchPlaceholder} // checking fallback commetn
                 />
               }
             />
