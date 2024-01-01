@@ -15,7 +15,7 @@ import EmailPage from "./pages/EmailPage/EmailPage";
  */
 function App() {
   const [searchPlaceholder, setSearchPlaceholder] = useState("");
-
+  // more comments
   return (
     <div className={style.container}>
       <header className={style.header}>
