@@ -8,7 +8,7 @@ export interface DraftsProps {
   searchPlaceholderText?: string;
   setSearchPlaceholderText?: React.Dispatch<React.SetStateAction<string>>;
 }
-
+// bug comment
 export default function Drafts(props: DraftsProps) {
   const location = useLocation();
 

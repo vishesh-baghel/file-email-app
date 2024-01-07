@@ -5,7 +5,7 @@ const emailList = [
     subject: "Hello, some long subject that is too long to fit in the box",
     body: "Hello World, from another world, I am your father, Luke Skywalker",
     dateOrTime: "10:00 AM",
-  },
+  }, // more comment
   {
     checked: true,
     sender: "Jane Doe",

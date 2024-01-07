@@ -5,7 +5,7 @@ import { Email } from "../../model/email";
 /**
  * Testing more files this time with bug commits
  */
-
+// more comment
 export class ApiCore {
   getAll?: () => Promise<any>;
   getOne?: (id: string) => Promise<any>;

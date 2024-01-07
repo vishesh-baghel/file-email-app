@@ -60,7 +60,7 @@ export default function Compose(props: ComposeProps) {
       id: "",
       from: "me",
       to: formValues.to,
-      cc: formValues.cc,
+      cc: formValues.cc, // more comment
       bcc: formValues.bcc,
       subject: formValues.subject,
       message: formValues.message,

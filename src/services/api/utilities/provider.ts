@@ -16,7 +16,7 @@ async function getOne(resource: string, id: string): Promise<AxiosResponse> {
     .get(`${BASE_URL}/${resource}/${id}`)
     .then(handleResponse)
     .catch(handleError);
-}
+} // more comment
 
 async function post<T>(resource: string, model: T): Promise<AxiosResponse> {
   return axios

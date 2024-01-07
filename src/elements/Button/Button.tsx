@@ -6,17 +6,21 @@ interface ButtonProps {
   content: string | JSX.Element;
   link?: string;
   onClick?: () => void;
-}
+} // more comment
 
 const Button: FC<ButtonProps> = ({ content, link, onClick }) => {
   return (
     <>
       {link ? (
         <Link to={link} className={style.link}>
-          <button className={style.text} onClick={onClick}>{content}</button>
+          <button className={style.text} onClick={onClick}>
+            {content}
+          </button>
         </Link>
       ) : (
-        <button className={style.text} onClick={onClick}>{content}</button>
+        <button className={style.text} onClick={onClick}>
+          {content}
+        </button>
       )}
     </>
   );
