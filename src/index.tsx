@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 // one more conmment
 const root = ReactDOM.createRoot(
+  // one more comment
   document.getElementById("root") as HTMLElement
 );
 // more comments
