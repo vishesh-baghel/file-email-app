@@ -7,7 +7,7 @@ import { useState } from "react";
 import Outbox from "./components/Outbox/Outbox";
 import Compose from "./pages/Compose/Compose";
 import Drafts from "./pages/Drafts/Drafts";
-import EmailPage from "./pages/EmailPage/EmailPage";
+import EmailPage from "./pages/EmailPage/emailpage";
 
 /**
  * checking the new feature.  new comment
