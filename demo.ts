@@ -24,7 +24,7 @@ function userCode() {
       }
   }
 
-  return {
+  return { // more comment
       fullName: firstName + ", " + lastName
   }
 }

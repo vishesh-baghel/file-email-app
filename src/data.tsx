@@ -1,3 +1,4 @@
+// bugs
 const emailList = [
   {
     checked: true,

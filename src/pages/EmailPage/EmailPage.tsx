@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 import Button from "../../elements/Button/Button";
 import Toolbar from "../../components/Toolbar/Toolbar";
 
-export interface EmailPageProps {}
+export interface EmailPageProps {} // more bugs
 
 const intialEmail: Email = {
   id: "",

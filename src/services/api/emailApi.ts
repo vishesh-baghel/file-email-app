@@ -12,4 +12,4 @@ const emailApi = new ApiCore({
   url: url, // more comments
 });
 
-export default emailApi;
+export default emailApi; // more bugs

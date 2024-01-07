@@ -1,5 +1,5 @@
 import { ApiOptions } from "../../model/apiOptions";
-import { apiProvider } from "./provider";
+import { apiProvider } from "./provider"; // more bugs
 import { Email } from "../../model/email";
 
 /**

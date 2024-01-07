@@ -61,7 +61,7 @@ export default function Compose(props: ComposeProps) {
       from: "me",
       to: formValues.to,
       cc: formValues.cc,
-      bcc: formValues.bcc,
+      bcc: formValues.bcc, // bugs
       subject: formValues.subject,
       message: formValues.message,
       attachments: [],

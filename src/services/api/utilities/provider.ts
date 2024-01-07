@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import { handleResponse, handleError } from "./response";
-
+// more bugs
 const BASE_URL = process.env.REACT_APP_API_URL;
 
 async function getAll(resource: string): Promise<AxiosResponse> {
