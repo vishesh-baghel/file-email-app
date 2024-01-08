@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"; // bug
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./app"; // one comment for happiness
