@@ -4,7 +4,7 @@ import SearchBox from "../SearchBox/SearchBox";
 
 export interface HeaderProps {
   searchPlaceholderText?: string;
-}
+} // what is this file
 
 export default function Header(props: HeaderProps) {
   return (
