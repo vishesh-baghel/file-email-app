@@ -23,7 +23,7 @@ function userCode() {
           status: 400, // one more
           error: "missing last name from the request body"
       }
-  }
+  } // the buggy comment
 
   return {
       fullName: firstName + ", " + lastName
