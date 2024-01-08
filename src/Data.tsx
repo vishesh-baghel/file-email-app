@@ -3,7 +3,7 @@ const emailList = [
     checked: true,
     sender: "John Doe",
     subject: "Hello, some long subject that is too long to fit in the box",
-    body: "Hello World, from another world, I am your father, Luke Skywalker",
+    body: "Hello World, from another world, I am your father, Luke Skywalker and your mother too",
     dateOrTime: "10:00 AM",
   },
   {
