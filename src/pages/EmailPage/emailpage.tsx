@@ -7,7 +7,7 @@ import Button from "../../elements/Button/Button";
 import Toolbar from "../../components/Toolbar/Toolbar";
 
 export interface EmailPageProps {}
-
+// new
 const intialEmail: Email = {
   id: "",
   from: "",
