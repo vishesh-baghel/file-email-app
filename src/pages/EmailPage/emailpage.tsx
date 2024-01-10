@@ -9,7 +9,7 @@ import Toolbar from "../../components/Toolbar/Toolbar";
 export interface EmailPageProps {}
 
 const intialEmail: Email = {
-  id: "",
+  id: "", // ohw many time do I have to do this??
   from: "",
   to: [],
   cc: [],
