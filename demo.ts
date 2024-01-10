@@ -58,3 +58,5 @@ function userCode() {
       fullName: firstName + ", " + lastName
   }
 }
+
+// how to deploy the app? 
