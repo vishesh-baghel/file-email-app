@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"; // more
 import emailApi from "../../services/api/emailApi";
 import style from "./EmailPage.module.css";
 import { Email } from "../../services/model/email";
