@@ -8,7 +8,7 @@ import { BrowserRouter } from "react-router-dom"; // one more comment
 const root = ReactDOM.createRoot(
   // one more comment
   document.getElementById("root") as HTMLElement
-);
+); // how many more bugs?
 root.render(
   <React.StrictMode>
     <BrowserRouter>
