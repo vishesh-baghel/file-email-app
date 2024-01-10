@@ -21,7 +21,7 @@ export default function Inbox(props: InboxProps) {
   const location = useLocation();
   const [selectAllChecked, setSelectAllChecked] = useState<boolean>(false);
   const [emailList, setEmailList] = useState<Email[]>([]); // more comments
-  const [selectedEmails, setSelectedEmails] = useState<string[]>([]);
+  const [selectedEmails, setSelectedEmails] = useState<string[]>([]); // more bugs
   const [showToolbar, setShowToolbar] = useState<boolean>(false);
   const [toggleReadButton, setToggleReadButton] = useState<boolean>(false);
   const [emailItemCSS, setEmailItemCSS] = useState<string>(
