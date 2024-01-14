@@ -18,7 +18,7 @@ export default function Outbox(props: OutboxProps) {
         props.setSearchPlaceholderText("Search Outbox");
     }
   });
-
+  // more comments
   return (
     <div className={style.container}>
       <div className={style.header}>
@@ -28,3 +28,4 @@ export default function Outbox(props: OutboxProps) {
     </div>
   );
 }
+// more

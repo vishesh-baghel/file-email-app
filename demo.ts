@@ -53,10 +53,8 @@ function userCode() {
           error: "missing last name from the request body"
       }
   }
-
   return {
       fullName: firstName + ", " + lastName
   }
 }
-
-// how to deploy the app? 
+// mor 

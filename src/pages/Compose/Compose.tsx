@@ -48,7 +48,7 @@ export default function Compose(props: ComposeProps) {
   const handleDiscardButton = () => {
     setFormValues(initialValues);
   };
-
+  // more comments
   const handleSendButton = () => {
     formValues.to = to.split(" ");
     formValues.cc = cc.split(" ");
@@ -106,7 +106,7 @@ export default function Compose(props: ComposeProps) {
       });
     }
   };
-
+  // sdfs
   return (
     <div className={style.container}>
       <div className={style.header}>

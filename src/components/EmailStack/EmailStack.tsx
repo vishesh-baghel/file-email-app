@@ -2,7 +2,6 @@ import style from "./EmailStack.module.css";
 import React, { useState } from "react";
 import { Email } from "../../services/model/email";
 import { Link } from "react-router-dom";
-
 export interface EmailStackProps {
   emails?: Email[];
   selectedEmails?: React.Dispatch<React.SetStateAction<string[]>>;

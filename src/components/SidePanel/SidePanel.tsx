@@ -3,7 +3,6 @@ import style from "./SidePanel.module.css";
 import Button from "../../elements/Button/Button";
 
 export interface SidePanelProps {}
-
 export default function SidePanel(props: SidePanelProps) {
   return (
     <div className={style.container}>

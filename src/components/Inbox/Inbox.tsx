@@ -16,7 +16,7 @@ export interface InboxProps {
   searchPlaceholderText?: string;
   setSearchPlaceholderText?: React.Dispatch<React.SetStateAction<string>>;
 }
-
+// more comments
 export default function Inbox(props: InboxProps) {
   const location = useLocation();
   const [selectAllChecked, setSelectAllChecked] = useState<boolean>(false);
@@ -27,7 +27,6 @@ export default function Inbox(props: InboxProps) {
   const [emailItemCSS, setEmailItemCSS] = useState<string>(
     emailStyle.emailItemContainer
   );
-
   useEffect(() => {
     if (location.pathname === "/" && props.setSearchPlaceholderText) {
       props.setSearchPlaceholderText("Search mail");

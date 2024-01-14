@@ -8,11 +8,10 @@
   margin: 1rem;
   border-radius: 5px;
 }
-
+/* sdf */
 .heading {
   margin: 0 0 10px;
 }
-
 .inputs {
   display: flex;
   flex-direction: column;
