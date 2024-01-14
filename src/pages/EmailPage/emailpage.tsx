@@ -4,7 +4,7 @@ import style from "./EmailPage.module.css";
 import { Email } from "../../services/model/email";
 import { useLocation } from "react-router-dom"; // more
 import Button from "../../elements/Button/Button";
-import Toolbar from "../../components/Toolbar/Toolbar"; // more comments
+import Toolbar from "../../components/Toolbar/Toolbar";
 export interface EmailPageProps {}
 // new
 const intialEmail: Email = {

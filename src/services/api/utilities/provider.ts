@@ -4,7 +4,7 @@ import { handleResponse, handleError } from "./response";
 const BASE_URL = process.env.REACT_APP_API_URL;
 async function getAll(resource: string): Promise<AxiosResponse> {
   return axios
-    .get(`${BASE_URL}/${resource}`) // more comments
+    .get(`${BASE_URL}/${resource}`)
     .then(handleResponse)
     .catch(handleError); // testing pr comment feature
 }

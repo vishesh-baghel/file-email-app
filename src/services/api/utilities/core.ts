@@ -2,9 +2,6 @@ import { ApiOptions } from "../../model/apiOptions";
 import { apiProvider } from "./provider";
 import { Email } from "../../model/email";
 
-/**
- * Testing more files this time with bug commits
- */
 export class ApiCore {
   getAll?: () => Promise<any>;
   getOne?: (id: string) => Promise<any>;

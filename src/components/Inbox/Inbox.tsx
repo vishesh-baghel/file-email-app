@@ -27,6 +27,7 @@ export default function Inbox(props: InboxProps) {
   const [emailItemCSS, setEmailItemCSS] = useState<string>(
     emailStyle.emailItemContainer
   );
+  // sdf
   useEffect(() => {
     if (location.pathname === "/" && props.setSearchPlaceholderText) {
       props.setSearchPlaceholderText("Search mail");

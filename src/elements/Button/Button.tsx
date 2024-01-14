@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Link } from "react-router-dom";
-import style from "./Button.module.css";
+import style from "./Button.module.css"; // omre
 interface ButtonProps {
   content: string | JSX.Element;
   link?: string;

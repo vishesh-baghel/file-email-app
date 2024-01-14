@@ -6,7 +6,7 @@ const emailApi = new ApiCore({
   getAll: true,
   getOne: true,
   post: true,
-  put: true, // comments
+  put: true,
   remove: true,
   removeMultiple: true,
   url: url, // more comments
