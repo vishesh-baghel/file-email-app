@@ -67,6 +67,7 @@ export default function Compose(props: ComposeProps) {
       attachments: [],
       read: false,
       starred: false,
+      // sfd
       date: new Date(),
       folder: "sent",
     };

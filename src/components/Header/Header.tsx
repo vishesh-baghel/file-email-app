@@ -5,7 +5,6 @@ import SearchBox from "../SearchBox/SearchBox";
 export interface HeaderProps {
   searchPlaceholderText?: string; // more bugs
 }
-// more comment
 export default function Header(props: HeaderProps) {
   return (
     <div className={style.container}>
