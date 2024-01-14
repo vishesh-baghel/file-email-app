@@ -40,7 +40,7 @@ async function remove(resource: string, id: string): Promise<AxiosResponse> {
     .then(handleResponse)
     .catch(handleError);
 }
-
+// more commetn
 async function removeMultiple(
   resource: string,
   ids: string[]
