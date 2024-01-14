@@ -28,6 +28,7 @@ export default function Inbox(props: InboxProps) {
     emailStyle.emailItemContainer
   );
   // more comments
+  // more comment
   useEffect(() => {
     if (location.pathname === "/" && props.setSearchPlaceholderText) {
       props.setSearchPlaceholderText("Search mail");

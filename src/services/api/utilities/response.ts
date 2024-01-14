@@ -2,7 +2,6 @@ export function handleResponse(response: any) {
   if (response.results) {
     return response.results;
   }
-  // bug
   if (response.data) {
     return response.data;
   }

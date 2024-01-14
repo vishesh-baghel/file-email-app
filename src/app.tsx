@@ -53,7 +53,6 @@ function App() {
                   setSearchPlaceholderText={setSearchPlaceholder}
                 />
               }
-              // sd
             />
             <Route path="/compose" element={<Compose />} />
             <Route path="/email/:id" element={<EmailPage />} />

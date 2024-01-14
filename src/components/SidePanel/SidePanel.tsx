@@ -6,7 +6,6 @@ export interface SidePanelProps {} // more commetns
 
 export default function SidePanel(props: SidePanelProps) {
   return (
-    // more
     <div className={style.container}>
       <div className={style.buttons}>
         <div className={style.button}>

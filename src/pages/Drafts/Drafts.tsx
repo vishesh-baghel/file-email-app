@@ -3,7 +3,6 @@ import style from "./Drafts.module.css";
 import EmailStack from "../../components/EmailStack/EmailStack";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-// more comments
 // omre
 export interface DraftsProps {
   searchPlaceholderText?: string;

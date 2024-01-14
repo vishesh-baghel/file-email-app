@@ -20,4 +20,3 @@ export default function SearchBox(props: SearchBoxProps) {
     </div>
   );
 }
-// omre
