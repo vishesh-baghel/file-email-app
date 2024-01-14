@@ -6,7 +6,6 @@ import { useLocation } from "react-router-dom";
 import Button from "../../elements/Button/Button";
 import Toolbar from "../../components/Toolbar/Toolbar";
 export interface EmailPageProps {}
-// new
 const intialEmail: Email = {
   id: "", // ohw many time do I have to do this??
   from: "",

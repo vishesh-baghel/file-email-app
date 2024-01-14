@@ -1,7 +1,6 @@
 import { ApiCore } from "./utilities/core";
 
 const url = "emails";
-// omre
 const emailApi = new ApiCore({
   getAll: true,
   getOne: true,
