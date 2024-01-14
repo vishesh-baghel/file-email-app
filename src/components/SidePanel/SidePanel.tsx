@@ -1,7 +1,7 @@
 import * as React from "react";
 import style from "./SidePanel.module.css";
 import Button from "../../elements/Button/Button";
-
+// omr e
 export interface SidePanelProps {}
 export default function SidePanel(props: SidePanelProps) {
   return (

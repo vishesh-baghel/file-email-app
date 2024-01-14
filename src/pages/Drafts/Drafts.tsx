@@ -3,6 +3,7 @@ import style from "./Drafts.module.css";
 import EmailStack from "../../components/EmailStack/EmailStack";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+// more
 export interface DraftsProps {
   searchPlaceholderText?: string;
   setSearchPlaceholderText?: React.Dispatch<React.SetStateAction<string>>;
