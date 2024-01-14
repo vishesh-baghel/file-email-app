@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import style from "./Button.module.css";
 // omre
 interface ButtonProps {
+  // more
   content: string | JSX.Element;
   link?: string;
   onClick?: () => void;

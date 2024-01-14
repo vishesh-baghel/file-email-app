@@ -1,7 +1,7 @@
 import * as React from "react";
 import style from "./Header.module.css";
 import SearchBox from "../SearchBox/SearchBox";
-
+// more comments
 export interface HeaderProps {
   searchPlaceholderText?: string; // more bugs
 }

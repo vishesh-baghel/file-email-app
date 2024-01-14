@@ -66,7 +66,7 @@ export default function Compose(props: ComposeProps) {
       message: formValues.message,
       attachments: [],
       read: false,
-      starred: false,
+      starred: false, // omre
       date: new Date(),
       folder: "sent",
     };

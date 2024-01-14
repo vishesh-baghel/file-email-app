@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from "axios";
 import { handleResponse, handleError } from "./response";
 
 const BASE_URL = process.env.REACT_APP_API_URL;
-
+// bug
 async function getAll(resource: string): Promise<AxiosResponse> {
   return axios
     .get(`${BASE_URL}/${resource}`) // more comments
