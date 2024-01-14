@@ -108,7 +108,6 @@ export default function Inbox(props: InboxProps) {
         <div className={style.toolbar}>
           {showToolbar && (
             <>
-              {/* jsk */}
               <div className={style.deleteButton}>
                 <Button
                   content={<DeleteOutlineIcon fontSize="small" />}
