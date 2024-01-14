@@ -1,6 +1,6 @@
 import style from "./EmailStack.module.css";
 import React, { useState } from "react";
-import { Email } from "../../services/model/email";
+import { Email } from "../../services/model/email"; // bug comments
 import { Link } from "react-router-dom";
 
 export interface EmailStackProps {

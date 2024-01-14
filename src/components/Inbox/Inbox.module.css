@@ -4,7 +4,7 @@
   height: 100%;
   overflow: hidden;
 }
-
+/* more commetns */
 .header {
   display: flex;
   flex-direction: row;
@@ -28,7 +28,7 @@
   flex-direction: row;
 }
 
-.refreshButton .deleteButton .markAsReadButton .markAsUnreadButton{
+.refreshButton .deleteButton .markAsReadButton .markAsUnreadButton {
   cursor: pointer;
   display: flex;
   justify-content: center;

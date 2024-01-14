@@ -48,6 +48,7 @@
 .emailItemSubject {
   display: inline-block;
   align-items: center;
+  /* more commetns */
   justify-content: left;
   width: 35%;
   cursor: pointer;

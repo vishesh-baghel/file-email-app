@@ -1,7 +1,7 @@
 import * as React from "react";
 import style from "./SearchBox.module.css";
 import Button from "../../elements/Button/Button";
-
+// more comments
 export interface SearchBoxProps {
   placeholder?: string;
 }

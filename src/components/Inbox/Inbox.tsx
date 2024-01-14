@@ -16,7 +16,7 @@ export interface InboxProps {
   searchPlaceholderText?: string;
   setSearchPlaceholderText?: React.Dispatch<React.SetStateAction<string>>;
 }
-
+// more comments
 export default function Inbox(props: InboxProps) {
   const location = useLocation();
   const [selectAllChecked, setSelectAllChecked] = useState<boolean>(false);
