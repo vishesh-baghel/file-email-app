@@ -6,7 +6,7 @@ async function getAll(resource: string): Promise<AxiosResponse> {
   return axios
     .get(`${BASE_URL}/${resource}`)
     .then(handleResponse)
-    .catch(handleError); // testing pr comment feature
+    .catch(handleError);
 }
 
 async function getOne(resource: string, id: string): Promise<AxiosResponse> {

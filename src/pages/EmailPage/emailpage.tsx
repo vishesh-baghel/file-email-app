@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"; // more
 import emailApi from "../../services/api/emailApi";
 import style from "./EmailPage.module.css";
 import { Email } from "../../services/model/email";
-import { useLocation } from "react-router-dom"; // more
+import { useLocation } from "react-router-dom";
 import Button from "../../elements/Button/Button";
 import Toolbar from "../../components/Toolbar/Toolbar";
 export interface EmailPageProps {}

@@ -5,7 +5,6 @@ export function handleResponse(response: any) {
   if (response.data) {
     return response.data;
   }
-  // more
   return response;
 }
 
