@@ -60,3 +60,4 @@ export const apiProvider = {
   remove,
   removeMultiple,
 };
+// fix
