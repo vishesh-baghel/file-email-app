@@ -27,3 +27,5 @@ const Button: FC<ButtonProps> = ({ content, link, onClick }) => {
 };
 
 export default Button;
+
+// more bugs
