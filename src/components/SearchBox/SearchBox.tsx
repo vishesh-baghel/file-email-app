@@ -20,9 +20,3 @@ export default function SearchBox(props: SearchBoxProps) {
     </div>
   );
 }
-
-// adding one
-
-// more bugs
-
-// more bugs

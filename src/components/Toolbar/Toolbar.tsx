@@ -86,9 +86,3 @@ function AttachmentItem(
     </div>
   );
 }
-
-// adding one
-
-// more bugs
-
-// more bugs

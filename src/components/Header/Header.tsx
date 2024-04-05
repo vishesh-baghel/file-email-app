@@ -15,10 +15,3 @@ export default function Header(props: HeaderProps) {
     </div>
   );
 }
-// more
-
-// adding one
-
-// more bugs
-
-// more bugs
