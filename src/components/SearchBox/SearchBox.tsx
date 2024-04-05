@@ -22,3 +22,5 @@ export default function SearchBox(props: SearchBoxProps) {
 }
 
 // new bug fix
+
+// new bug fix

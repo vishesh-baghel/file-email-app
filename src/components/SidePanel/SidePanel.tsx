@@ -26,3 +26,5 @@ export default function SidePanel(props: SidePanelProps) {
 }
 
 // new bug fix
+
+// new bug fix
