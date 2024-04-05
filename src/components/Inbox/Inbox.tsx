@@ -144,9 +144,3 @@ export default function Inbox(props: InboxProps) {
     </div>
   );
 }
-
-// adding one
-
-// more bugs
-
-// more bugs

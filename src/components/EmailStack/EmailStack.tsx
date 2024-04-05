@@ -128,9 +128,3 @@ export default function EmailStack(props: EmailStackProps) {
     </div>
   );
 }
-// adding a comment
-// adding one
-
-// more bugs
-
-// more bugs

@@ -28,9 +28,3 @@ export default function Outbox(props: OutboxProps) {
     </div>
   );
 }
-
-// adding one
-
-// more bugs
-
-// more bugs

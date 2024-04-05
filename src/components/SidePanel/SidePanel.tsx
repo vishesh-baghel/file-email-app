@@ -24,9 +24,3 @@ export default function SidePanel(props: SidePanelProps) {
     </div>
   );
 }
-
-// adding one
-
-// more bugs
-
-// more bugs
