@@ -15,7 +15,3 @@ export default function Header(props: HeaderProps) {
     </div>
   );
 }
-
-// new bug fix
-
-// new bug fix

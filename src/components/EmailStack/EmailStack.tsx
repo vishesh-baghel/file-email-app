@@ -128,6 +128,3 @@ export default function EmailStack(props: EmailStackProps) {
     </div>
   );
 }
-// new bug fix
-
-// new bug fix
