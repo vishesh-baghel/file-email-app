@@ -19,7 +19,7 @@ function userCode() {
   }
 // its having compilation errors
   if (!{{request.body.lastName}}) {
-      return {
+      return { // how many bugs?
           status: 400, // one more
           error: "missing last name from the request body"
       }
